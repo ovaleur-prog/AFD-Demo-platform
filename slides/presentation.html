@@ -90,16 +90,11 @@
   .context-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
   .context-card .doc { display: flex; align-items: center; gap: 12px; min-width: 0; font-family: "JetBrains Mono", monospace; font-size: 21px; font-weight: 700; }
   .context-card .doc::before { content: "0" counter(context-doc); counter-increment: context-doc; display: grid; place-items: center; width: 38px; height: 34px; flex: none; border: 1px solid rgba(167,139,250,.3); border-radius: 8px; color: var(--purple2); font-size: 14px; }
-  .context-card .stars { display: flex; gap: 3px; flex: none; }
-  .context-card .star { width: 22px; height: 22px; }
+  .context-card .priority { flex: none; padding: 7px 10px; border: 1px solid rgba(167,139,250,.35); border-radius: 7px; background: rgba(139,92,246,.12); color: var(--purple2); font: 700 12px "JetBrains Mono", monospace; letter-spacing: 1px; }
+  .context-card .priority.high { border-color: rgba(77,208,225,.35); background: rgba(77,208,225,.1); color: var(--cyan); }
   .context-card .purpose { margin: 16px 0 0; color: #cfcfd8; font-size: 19px; line-height: 1.4; }
   .context-card .purpose b { color: #fff; }
   .context-card:last-child .purpose { margin: 0; }
-  .star { opacity: 0; color: #3a3a44; }
-  .star.on { color: var(--yellow); filter: drop-shadow(0 0 6px rgba(242,242,10,.45)); }
-  [data-step].in .star { animation: pop .55s var(--spring) var(--d) both; }
-  @keyframes pop { from { opacity: 0; transform: scale(0) rotate(-60deg); } to { opacity: 1; transform: none; } }
-
   .qcol { padding-top: 6px; }
   .qcol .eyebrow { margin-bottom: 26px; }
   .q { display: flex; align-items: center; gap: 18px; height: 78px; margin-bottom: 14px; padding: 0 22px; border: 1px solid var(--line); border-radius: 14px; background: rgba(19,19,22,.7); font-size: 21px; }
@@ -330,7 +325,7 @@
   [data-step].in .ide-top img { transform: none; }
   .ide-top h4 { margin: 0; font-size: 23px; font-weight: 700; }
   .ide-top small { display: block; margin-top: 4px; color: var(--grey); font-size: 16px; }
-  .ide-strength { margin-top: 24px; color: var(--yellow); font-size: 19px; font-weight: 600; }
+  .ide-strength { margin-top: 24px; color: var(--cyan); font-size: 19px; font-weight: 600; }
   .ide-strength::before { content: "KNOWN FOR"; display: block; margin-bottom: 4px; color: #888894; font-size: 12px; letter-spacing: 1.5px; }
 
   /* ---------- SLIDE 7 (chart) ---------- */
@@ -443,7 +438,6 @@
 
 <svg width="0" height="0" style="position:absolute">
   <defs>
-    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.3l-5.9 3.2 1.3-6.6-4.9-4.5 6.6-.8z"/></symbol>
     <symbol id="i-figma" viewBox="0 0 24 24"><path d="M9 3h3v6H9a3 3 0 0 1 0-6zM12 3h3a3 3 0 0 1 0 6h-3zM9 9h3v6H9a3 3 0 0 1 0-6zM9 15h3v3a3 3 0 1 1-3-3z"/><circle cx="15" cy="12" r="3"/></symbol>
     <symbol id="i-share" viewBox="0 0 24 24"><circle cx="10" cy="9" r="6"/><circle cx="16.5" cy="15" r="4"/><circle cx="8" cy="18" r="3"/></symbol>
     <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="7" r="2.2"/><path d="M6 7.2v9.6M18 9.2v.8a4 4 0 0 1-4 4h-4a4 4 0 0 0-4 2.8"/></symbol>
@@ -658,11 +652,11 @@
 
     <div class="s10-grid">
       <div class="context-cards" data-step="0">
-        <article class="context-card a left" style="--d:.4s"><div class="context-top"><div class="doc">PRD.md</div><div class="stars" data-n="5" data-delay="1.0"></div></div><p class="purpose">Defines <b>what to build, for whom, and why</b></p></article>
-        <article class="context-card a left" style="--d:.55s"><div class="context-top"><div class="doc">Architecture.md</div><div class="stars" data-n="5" data-delay="1.15"></div></div><p class="purpose">Defines <b>how the system is structured</b> and how components interact</p></article>
-        <article class="context-card a left" style="--d:.7s"><div class="context-top"><div class="doc">Design-System.md</div><div class="stars" data-n="5" data-delay="1.3"></div></div><p class="purpose">Ensures <b>visual consistency, branding</b> and user experience</p></article>
-        <article class="context-card a left" style="--d:.85s"><div class="context-top"><div class="doc">App-Flow.md</div><div class="stars" data-n="4" data-delay="1.45"></div></div><p class="purpose">Defines the <b>user journeys</b> and navigation paths</p></article>
-        <article class="context-card a left" style="--d:1.0s"><div class="context-top"><div class="doc">Testing.md</div><div class="stars" data-n="4" data-delay="1.6"></div></div><p class="purpose">Defines <b>how to verify</b> the application works as expected</p></article>
+        <article class="context-card a left" style="--d:.4s"><div class="context-top"><div class="doc">PRD.md</div><span class="priority core">CORE</span></div><p class="purpose">Defines <b>what to build, for whom, and why</b></p></article>
+        <article class="context-card a left" style="--d:.55s"><div class="context-top"><div class="doc">Architecture.md</div><span class="priority core">CORE</span></div><p class="purpose">Defines <b>how the system is structured</b> and how components interact</p></article>
+        <article class="context-card a left" style="--d:.7s"><div class="context-top"><div class="doc">Design-System.md</div><span class="priority core">CORE</span></div><p class="purpose">Ensures <b>visual consistency, branding</b> and user experience</p></article>
+        <article class="context-card a left" style="--d:.85s"><div class="context-top"><div class="doc">App-Flow.md</div><span class="priority high">HIGH</span></div><p class="purpose">Defines the <b>user journeys</b> and navigation paths</p></article>
+        <article class="context-card a left" style="--d:1.0s"><div class="context-top"><div class="doc">Testing.md</div><span class="priority high">HIGH</span></div><p class="purpose">Defines <b>how to verify</b> the application works as expected</p></article>
       </div>
 
       <div class="qcol" data-step="1">
@@ -685,50 +679,10 @@
     </div>
   </section>
 
+  <!-- ================= SLIDE 11: PRD EXAMPLE ================= -->
+
   <!-- ================= SLIDE 11 ================= -->
   <section class="slide" data-num="11">
-    <div data-step="0">
-      <h2 class="title a blur">Connectors: Giving AI <span class="hl">Access to Data</span></h2>
-      <p class="sub a" style="--d:.25s">Without data, an AI agent is <strong style="color:#fff;font-weight:600">just a chatbot</strong>.</p>
-    </div>
-
-    <div class="s11-grid">
-      <div class="hub" data-step="0">
-        <svg viewBox="0 -40 800 780">
-          <!-- links: node -> core -->
-          <path class="ln" pathLength="1" style="--d:.5s"  d="M400 80 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.6s"  d="M634 215 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.7s"  d="M634 485 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.8s"  d="M400 620 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.9s"  d="M166 485 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:1.0s" d="M166 215 L400 350"/>
-
-          <g class="pk" fill="#4dd0e1">
-            <circle r="6"><animateMotion dur="1.8s" repeatCount="indefinite" path="M400 80 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin=".3s" repeatCount="indefinite" path="M634 215 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin=".6s" repeatCount="indefinite" path="M634 485 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite" path="M400 620 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin="1.2s" repeatCount="indefinite" path="M166 485 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin="1.5s" repeatCount="indefinite" path="M166 215 L400 350"/></circle>
-          </g>
-
-          <g transform="translate(400 350)">
-            <g class="core">
-              <circle class="ring" r="100"/>
-              <circle class="ring r2" r="100"/>
-              <circle r="100" fill="url(#coreGrad)"/>
-              <text y="-4" text-anchor="middle" fill="#fff" font-size="30" font-weight="700">AI Agent</text>
-              <text y="30" text-anchor="middle" fill="#e7deff" font-size="17">+ your context</text>
-            </g>
-          </g>
-
-          <g transform="translate(400 80)"><g class="node" style="--d:.5s"><circle class="bgc" r="60"/><use href="#i-figma" x="-24" y="-24" width="48" height="48" class="ico" style="color:#ff7262"/><text y="-80">Figma</text></g></g>
-          <g transform="translate(634 215)"><g class="node" style="--d:.6s"><circle class="bgc" r="60"/><use href="#i-share" x="-24" y="-24" width="48" height="48" class="ico" style="color:#38b2ac"/><text y="92">SharePoint</text></g></g>
-          <g transform="translate(634 485)"><g class="node" style="--d:.7s"><circle class="bgc" r="60"/><use href="#i-git" x="-24" y="-24" width="48" height="48" class="ico" style="color:#fff"/><text y="92">GitHub</text></g></g>
-          <g transform="translate(400 620)"><g class="node" style="--d:.8s"><circle class="bgc" r="60"/><use href="#i-db" x="-24" y="-24" width="48" height="48" class="ico" style="color:#f2c94c"/><text y="92">Databases</text></g></g>
-          <g transform="translate(166 485)"><g class="node" style="--d:.9s"><circle class="bgc" r="60"/><use href="#i-api" x="-24" y="-24" width="48" height="48" class="ico" style="color:#4dd0e1"/><text y="92">APIs</text></g></g>
-          <g transform="translate(166 215)"><g class="node" style="--d:1.0s"><circle class="bgc" r="60"/><use href="#i-doc" x="-24" y="-24" width="48" height="48" class="ico" style="color:#a78bfa"/><text y="92">Documents</text></g></g>
-        </svg>
       </div>
 
       <div class="ex">
@@ -890,20 +844,6 @@
   const hud = document.getElementById("hud");
   const progress = document.getElementById("progress");
   let cur = 0, step = 0;
-
-  // Stars
-  document.querySelectorAll(".stars").forEach(el => {
-    const n = +el.dataset.n, base = +el.dataset.delay;
-    for (let i = 0; i < 5; i++) {
-      const s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      s.setAttribute("class", "star" + (i < n ? " on" : ""));
-      s.style.setProperty("--d", (base + i * 0.08).toFixed(2) + "s");
-      const u = document.createElementNS("http://www.w3.org/2000/svg", "use");
-      u.setAttribute("href", "#i-star");
-      s.appendChild(u);
-      el.appendChild(s);
-    }
-  });
 
   // Fake code lines in the VS Code mock
   const C = { k: "#c586c0", f: "#dcdcaa", v: "#9cdcfe", s: "#ce9178", t: "#4ec9b0", g: "#6a9955", p: "#808080" };
