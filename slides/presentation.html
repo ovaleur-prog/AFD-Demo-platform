@@ -376,6 +376,36 @@
   .cmd h4 { margin: 0 0 18px; font-size: 44px; }
   .cmd p { margin: 0 0 14px; font-size: 28px; }
   .cmd q { display: block; font-size: 24px; color: #bbb; }
+
+  /* ---------- SLIDE 14 (conclusion) ---------- */
+  .s14 .sub { font-size: 24px; max-width: 1500px; }
+  .s14-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin-top: 46px; }
+  .s14 .eyebrow { display: block; margin-bottom: 18px; }
+  .s14 .lead { margin: 0 0 20px; font-size: 24px; font-weight: 300; color: #cfcfd8; line-height: 1.45; }
+  .s14 .lead b { color: #fff; font-weight: 600; }
+  .ctx { display: flex; align-items: center; gap: 18px; height: 60px; margin-bottom: 10px; padding: 0 22px; border-radius: 12px; border: 1px solid var(--line); background: rgba(19,19,22,.75); font-size: 22px; }
+  .ctx .ico { font-size: 28px; color: var(--purple2); flex: none; }
+  .ctx b { margin-left: auto; font-family: "JetBrains Mono", monospace; font-size: 15px; padding: 6px 12px; border-radius: 8px; background: var(--purple-dark); color: var(--purple2); }
+  .direction { margin-top: 22px; padding: 22px 28px; border-radius: 16px; font-size: 26px; line-height: 1.4; border-left: 4px solid var(--cyan); background: linear-gradient(90deg, rgba(77,208,225,.12), transparent); }
+  .from { display: flex; align-items: center; gap: 16px; height: 64px; padding: 0 22px; border-radius: 12px; background: rgba(255,80,80,.07); border: 1px solid rgba(255,80,80,.3); font-size: 23px; color: #9a9aa4; }
+  .from span { text-decoration: line-through; text-decoration-color: #ff6b6b; }
+  .from .ico, .to .ico { font-size: 26px; flex: none; }
+  .from .ico { color: #ff6b6b; }
+  .shift { margin: 10px 0 10px 30px; font-size: 18px; letter-spacing: 2px; color: var(--grey); text-transform: uppercase; }
+  .to { display: flex; align-items: center; gap: 16px; height: 54px; margin-bottom: 8px; padding: 0 22px; border-radius: 12px; background: rgba(77,208,225,.06); border: 1px solid rgba(77,208,225,.28); font-size: 23px; }
+  .to .ico { color: #5ee08a; }
+  .s14 .keymsg { margin-top: 26px; text-align: center; font-size: 30px; font-weight: 600; }
+  .s14 .keymsg .hl { font-weight: 800; }
+  .final .ov-l { font-size: 40px; color: #fff; font-weight: 500; line-height: 1.4; }
+  .final .ov-l.dim { margin-top: 20px; font-size: 32px; color: var(--grey); font-weight: 300; }
+  .final .gigo { margin: 50px 0 0; font-size: 64px; line-height: 1.2; letter-spacing: -1px; }
+
+  /* ---------- SLIDE 15 (Q&A) ---------- */
+  .s15 .qa { position: relative; margin: 10px 0 0; font-size: 220px; font-weight: 800; line-height: 1; letter-spacing: -6px;
+             background: linear-gradient(90deg, var(--purple2), var(--cyan), var(--purple2)); background-size: 200% 100%;
+             -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 4s linear infinite; }
+  .s15 .thanks { position: relative; margin-top: 30px; font-size: 40px; font-weight: 300; color: #d6d6de; }
+  .s15 .names { position: relative; margin-top: 50px; font-size: 22px; letter-spacing: 3px; color: var(--grey); text-transform: uppercase; }
 </style>
 </head>
 <body>
@@ -393,6 +423,9 @@
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></symbol>
     <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12L4 7.5M12 12v9"/></symbol>
     <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="5" r="2.2"/><path d="M8.2 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.8"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
     <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1-2 5-2 5s4-.5 5-2M9 15l-3-3c1.5-5 6-9 13-9 0 7-4 11.5-9 13z"/><circle cx="14.5" cy="9.5" r="1.6"/></symbol>
     <linearGradient id="lnGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#4dd0e1"/><stop offset="1" stop-color="#8b5cf6"/>
@@ -713,6 +746,62 @@
       <div class="stepn a scale" style="--d:2.1s"><div class="dot" style="--d:2.2s"><svg class="ico"><use href="#i-rocket"/></svg></div><small>STEP 5</small><span>Publish a<br/>prototype</span></div>
     </div>
     <div class="cta a scale" data-step="1" style="--d:2.7s">Let's build it <span>&rarr;</span></div>
+  </section>
+
+  <!-- ================= SLIDE 14 ================= -->
+  <section class="slide s14" data-num="14">
+    <div data-step="0">
+      <h2 class="title a blur">Conclusion: <span class="hl">Key Takeaways</span></h2>
+      <p class="sub a" style="--d:.25s">Building AI-powered applications is no longer limited to software engineers. With the right tools, documentation and AI assistants, <strong style="color:#fff;font-weight:600">anyone can accelerate the journey from an idea to a working prototype</strong>.</p>
+    </div>
+
+    <div class="s14-grid">
+      <div data-step="0">
+        <p class="lead a left" style="--d:.5s">Success is not about writing better prompts.<br/>It is about providing <b>the right context</b>:</p>
+        <div class="ctx a left" style="--d:.65s"><svg class="ico"><use href="#i-doc"/></svg>A clear product vision<b>PRD</b></div>
+        <div class="ctx a left" style="--d:.75s"><svg class="ico"><use href="#i-box"/></svg>A structured architecture<b>Architecture</b></div>
+        <div class="ctx a left" style="--d:.85s"><svg class="ico"><use href="#i-figma"/></svg>Consistent design guidelines<b>Design System</b></div>
+        <div class="ctx a left" style="--d:.95s"><svg class="ico"><use href="#i-route"/></svg>Well-defined user journeys<b>App Flow</b></div>
+        <div class="ctx a left" style="--d:1.05s"><svg class="ico"><use href="#i-check"/></svg>A testing strategy<b>Testing</b></div>
+        <div class="direction a" style="--d:1.4s">The AI writes the code, but <span class="hl">you provide the direction</span>.</div>
+      </div>
+
+      <div>
+       <div data-step="1">
+        <span class="eyebrow a">The new skillset</span>
+        <div class="from a right" style="--d:.1s"><svg class="ico"><use href="#i-x"/></svg><span>Writing every line of code</span></div>
+        <div class="shift a" style="--d:.35s">↓ the value moves to</div>
+        <div class="to a right" style="--d:.5s"><svg class="ico"><use href="#i-check"/></svg>Defining problems clearly</div>
+        <div class="to a right" style="--d:.6s"><svg class="ico"><use href="#i-check"/></svg>Structuring requirements</div>
+        <div class="to a right" style="--d:.7s"><svg class="ico"><use href="#i-check"/></svg>Guiding AI agents effectively</div>
+        <div class="to a right" style="--d:.8s"><svg class="ico"><use href="#i-check"/></svg>Validating outcomes</div>
+        <div class="to a right" style="--d:.9s"><svg class="ico"><use href="#i-check"/></svg>Iterating quickly</div>
+       </div>
+        <div class="keymsg a" data-step="2">The bottleneck is no longer coding.<br/>The bottleneck is <span class="hl">clarity</span>.</div>
+      </div>
+    </div>
+
+    <div class="overlay final" data-step="3">
+      <div class="ov-card">
+        <div class="eyebrow a" style="--d:.1s;margin-bottom:30px">Final message</div>
+        <div class="ov-l a" style="--d:.3s">AI will not replace developers.</div>
+        <div class="ov-l dim a" style="--d:.8s">But professionals who know how to work with AI development tools will build and experiment <strong style="color:#fff;font-weight:600">much faster</strong> than those who don't.</div>
+        <div class="ov-l dim a" style="--d:1.4s">The goal of Vibe Coding is not perfect software.</div>
+        <div class="gigo a scale" style="--d:1.9s">Reduce the time between<br/>an idea and a working solution.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 15 ================= -->
+  <section class="slide divider s15" data-num="15">
+    <div class="dside l a left" data-step="0"><div class="img"></div></div>
+    <div class="dside r a right" data-step="0"><div class="img"></div></div>
+    <div data-step="0">
+      <div class="num a scale" style="--d:.5s">03.</div>
+      <div class="qa a blur" style="--d:.75s">Q&amp;A</div>
+      <div class="thanks a" style="--d:1.1s">Thank you! Your questions are welcome.</div>
+      <div class="names a" style="--d:1.4s">Pierre Pavlovic · Oscar Valeur</div>
+    </div>
   </section>
 
   <div class="hud" id="hud"></div>
