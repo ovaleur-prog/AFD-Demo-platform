@@ -79,18 +79,23 @@
   .ico { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
   /* ---------- SLIDE 10 ---------- */
-  .s10-grid { display: grid; grid-template-columns: 1060px 1fr; gap: 70px; margin-top: 56px; }
-  .tbl { border-radius: 14px; overflow: hidden; }
-  .tr { display: grid; grid-template-columns: 290px 210px 1fr; align-items: center; padding: 0 28px; height: 92px; border-bottom: 1px solid #1d1d22; background: rgba(19,19,22,.85); position: relative; }
-  .tr.head { height: 62px; background: var(--purple-dark); font-weight: 700; font-size: 20px; }
-  .tr.head .y { color: var(--yellow); }
-  .tr .doc { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 22px; }
-  .tr .purpose { font-size: 20px; color: #cfcfd8; line-height: 1.35; }
-  .tr .purpose b { color: #fff; }
-  .tr:not(.head)::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--purple); transform: scaleY(0); transition: transform .5s var(--ease) calc(var(--d) + .2s); }
-  [data-step].in .tr::before { transform: scaleY(1); }
-  .stars { display: flex; gap: 6px; }
-  .star { width: 26px; height: 26px; opacity: 0; color: #3a3a44; }
+  .s10-grid { display: grid; grid-template-columns: 1060px 1fr; gap: 52px; margin-top: 42px; }
+  .context-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-content: start; counter-reset: context-doc; }
+  .context-card { position: relative; min-height: 150px; overflow: hidden; padding: 20px 22px 18px 26px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: linear-gradient(145deg, rgba(139,92,246,.16), rgba(19,19,22,.94) 65%); }
+  .context-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--purple2); }
+  .context-card:nth-child(2)::before { background: var(--cyan); }
+  .context-card:nth-child(3)::before { background: var(--yellow); }
+  .context-card:nth-child(4)::before { background: #f08b65; }
+  .context-card:last-child { display: grid; grid-column: 1 / -1; grid-template-columns: 1fr 1.3fr; align-items: center; gap: 24px; min-height: 108px; }
+  .context-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+  .context-card .doc { display: flex; align-items: center; gap: 12px; min-width: 0; font-family: "JetBrains Mono", monospace; font-size: 21px; font-weight: 700; }
+  .context-card .doc::before { content: "0" counter(context-doc); counter-increment: context-doc; display: grid; place-items: center; width: 38px; height: 34px; flex: none; border: 1px solid rgba(167,139,250,.3); border-radius: 8px; color: var(--purple2); font-size: 14px; }
+  .context-card .stars { display: flex; gap: 3px; flex: none; }
+  .context-card .star { width: 22px; height: 22px; }
+  .context-card .purpose { margin: 16px 0 0; color: #cfcfd8; font-size: 19px; line-height: 1.4; }
+  .context-card .purpose b { color: #fff; }
+  .context-card:last-child .purpose { margin: 0; }
+  .star { opacity: 0; color: #3a3a44; }
   .star.on { color: var(--yellow); filter: drop-shadow(0 0 6px rgba(242,242,10,.45)); }
   [data-step].in .star { animation: pop .55s var(--spring) var(--d) both; }
   @keyframes pop { from { opacity: 0; transform: scale(0) rotate(-60deg); } to { opacity: 1; transform: none; } }
@@ -277,12 +282,14 @@
              clip-path: inset(0 100% 0 0); transition: clip-path 1.3s var(--ease); }
   .s3 .pic::after { content: ""; position: absolute; inset: 0; background: rgba(35, 25, 70, .55); }
   .s3 .pic.in { clip-path: inset(0 0 0 0); }
-  .s3 .agenda { position: absolute; left: 920px; top: 220px; }
-  .s3 h2 { margin: 0 0 54px; font-size: 64px; font-weight: 800; }
-  .ag { font-size: 34px; margin-bottom: 20px; }
-  .ag time { color: var(--purple2); margin-right: 14px; }
-  .ag.indent { font-size: 28px; margin: 0 0 16px 92px; color: #e6e6ee; }
-  .ag.indent i { font-style: normal; color: var(--purple2); margin-right: 10px; }
+  .s3 .agenda { position: absolute; left: 900px; top: 170px; width: 900px; }
+  .s3 h2 { margin: 0 0 36px; font-size: 66px; font-weight: 800; }
+  .s3 .agenda::before { content: ""; position: absolute; left: 21px; top: 108px; bottom: 42px; width: 2px; background: linear-gradient(var(--purple), rgba(77,208,225,.15)); }
+  .ag { display: flex; align-items: center; position: relative; min-height: 62px; margin-bottom: 8px; padding: 8px 18px 8px 52px; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; background: rgba(19,19,22,.62); font-size: 34px; }
+  .ag:not(.indent)::before { content: ""; position: absolute; left: 12px; top: 50%; width: 18px; height: 18px; border: 3px solid var(--purple2); border-radius: 50%; background: var(--bg); transform: translateY(-50%); z-index: 1; }
+  .ag time { display: inline-flex; align-items: center; width: 100px; min-height: 42px; flex: none; margin-right: 16px; color: var(--cyan); font-family: "JetBrains Mono", monospace; font-size: 22px; }
+  .ag.indent { min-height: 44px; margin: 0 0 4px 148px; padding: 4px 16px; border-color: transparent; background: transparent; color: #d6d6de; font-size: 27px; }
+  .ag.indent i { font-style: normal; color: var(--purple2); margin-right: 12px; }
 
   /* ---------- SLIDE 4 (section divider) ---------- */
   .divider { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -311,36 +318,49 @@
   .ide-sub { margin: 26px 0 0; text-align: center; font-size: 32px; font-weight: 300; color: var(--grey); }
   .s6-grid { display: grid; grid-template-columns: 520px 1fr; gap: 50px; margin-top: 60px; }
   .s6 h3 { margin: 0 0 30px; font-size: 32px; font-weight: 700; color: var(--purple2); }
-  .s6 .arrow-list li { font-size: 32px; margin-bottom: 16px; }
-  .trw { display: grid; grid-template-columns: 330px 250px 1fr; align-items: center; height: 64px; padding: 0 20px; font-size: 26px; background: #111214; }
-  .trw:nth-child(odd) { background: #17181b; }
-  .trw.head { background: var(--purple-dark); font-weight: 700; }
-  .trw .y { color: var(--yellow); }
-  .trw .tool { display: flex; align-items: center; gap: 14px; font-weight: 700; }
-  .trw img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; transform: scale(0) rotate(-120deg); transition: transform .6s var(--spring) calc(var(--d) + .3s); }
-  [data-step].in .trw img { transform: none; }
+  .s6 .arrow-list { counter-reset: ide-feature; }
+  .s6 .arrow-list li { display: flex; align-items: center; min-height: 66px; margin-bottom: 8px; padding: 0 14px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 29px; counter-increment: ide-feature; }
+  .s6 .arrow-list li::before { content: "0" counter(ide-feature); display: grid; place-items: center; width: 42px; height: 38px; flex: none; margin-right: 18px; border: 1px solid rgba(167,139,250,.35); border-radius: 8px; background: var(--purple-dark); color: var(--purple2); font: 600 15px "JetBrains Mono", monospace; }
+  .ide-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .ide-card { position: relative; min-height: 190px; overflow: hidden; padding: 20px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: linear-gradient(145deg, rgba(139,92,246,.15), rgba(19,19,22,.94) 62%); }
+  .ide-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--purple2), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease) calc(var(--d) + .25s); }
+  [data-step].in .ide-card::before { transform: scaleX(1); }
+  .ide-top { display: flex; align-items: center; gap: 16px; }
+  .ide-top img { width: 54px; height: 54px; flex: none; padding: 5px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,.08); transform: scale(0) rotate(-90deg); transition: transform .6s var(--spring) calc(var(--d) + .3s); }
+  [data-step].in .ide-top img { transform: none; }
+  .ide-top h4 { margin: 0; font-size: 23px; font-weight: 700; }
+  .ide-top small { display: block; margin-top: 4px; color: var(--grey); font-size: 16px; }
+  .ide-strength { margin-top: 24px; color: var(--yellow); font-size: 19px; font-weight: 600; }
+  .ide-strength::before { content: "KNOWN FOR"; display: block; margin-bottom: 4px; color: #888894; font-size: 12px; letter-spacing: 1.5px; }
 
   /* ---------- SLIDE 7 (chart) ---------- */
   .s7 h2.title { font-size: 52px; white-space: nowrap; }
-  .chart svg { display: block; width: 1470px; height: 700px; margin: 30px auto 0; overflow: visible; }
+  .chart svg { display: block; width: 1680px; height: 820px; margin: 10px auto 0; overflow: visible; }
   .ch-grid { stroke: #2c2c33; stroke-width: 1.5; }
-  .ch-axis { fill: #9a9aa4; font-size: 19px; }
+  .ch-axis { fill: #9a9aa4; font-size: 22px; }
   .ch-line { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1;
              transition: stroke-dashoffset 1.6s cubic-bezier(.6, 0, .3, 1) var(--d); }
   .chart.in .ch-line { stroke-dashoffset: 0; }
   .ch-pt { opacity: 0; transform: scale(0); transform-box: fill-box; transform-origin: center; transition: opacity .3s ease var(--d), transform .5s var(--spring) var(--d); }
   .chart.in .ch-pt { opacity: 1; transform: none; }
-  .ch-val { opacity: 0; font-size: 21px; font-weight: 700; text-anchor: middle; transition: opacity .4s ease var(--d); }
+  .ch-val { opacity: 0; font-size: 25px; font-weight: 700; text-anchor: middle; transition: opacity .4s ease var(--d); }
   .chart.in .ch-val { opacity: 1; }
-  .ch-leg { opacity: 0; transform: translateX(-24px); font-size: 25px; font-weight: 600; transition: opacity .5s ease var(--d), transform .6s var(--ease) var(--d); }
+  .ch-leg { opacity: 0; transform: translateX(-24px); font-size: 29px; font-weight: 600; transition: opacity .5s ease var(--d), transform .6s var(--ease) var(--d); }
   .chart.in .ch-leg { opacity: 1; transform: none; }
-  .source { position: absolute; right: 160px; bottom: 60px; font-size: 16px; color: #8a8a94; }
+  .source { position: absolute; right: 160px; bottom: 52px; font-size: 16px; color: #8a8a94; }
   .source u { color: var(--cyan); }
 
   /* ---------- SLIDE 8 ---------- */
   .problem { margin: 12px 0 0; font-size: 38px; font-weight: 300; }
   .s8-grid { display: grid; grid-template-columns: 820px 1fr; gap: 70px; margin-top: 30px; align-items: center; }
-  .gitimg img { display: block; width: 100%; animation: float 6s ease-in-out infinite; }
+  .gg svg { display: block; width: 100%; overflow: visible; }
+  .gg .gl { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.2s var(--ease) var(--d); }
+  [data-step].in .gg .gl { stroke-dashoffset: 0; }
+  .gg .cm { opacity: 0; transform: scale(0); transform-box: fill-box; transform-origin: center; transition: opacity .3s ease var(--d), transform .5s var(--spring) var(--d); }
+  [data-step].in .gg .cm { opacity: 1; transform: none; }
+  .gg .lb { opacity: 0; transition: opacity .6s ease var(--d); }
+  [data-step].in .gg .lb { opacity: 1; }
+  .gg .tag { animation: pulse 2s ease-in-out 3s infinite; transform-box: fill-box; transform-origin: center; }
   .s8 .big { margin: 14px 0 0; font-size: 52px; font-weight: 700; }
   .s8 .big.purple { color: var(--purple2); margin-top: 50px; }
   .s8 .quote2 { margin-top: 18px; font-size: 32px; font-weight: 300; color: var(--grey); }
@@ -352,6 +372,17 @@
   .dev { text-align: center; }
   .dev > img { display: block; height: 250px; margin: 0 auto 22px; animation: float 6s ease-in-out infinite; }
   .dev.right > img { animation-delay: -3s; }
+  .term { width: 440px; height: 250px; margin: 0 auto 22px; border-radius: 14px; overflow: hidden; text-align: left; background: #111114; border: 1px solid #34343c;
+          box-shadow: 0 30px 80px rgba(91,43,214,.35); animation: float 6s ease-in-out infinite; }
+  .term .tb2 { display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; background: #1f1f25; font-size: 14px; color: #8a8a94; }
+  .term .tb2 i { width: 12px; height: 12px; border-radius: 50%; }
+  .term .tb2 span { margin-left: 12px; font-family: "JetBrains Mono", monospace; }
+  .term .tbody { padding: 20px 22px; font-size: 18px; line-height: 1.9; }
+  .term .tl { opacity: 0; transform: translateX(-10px); transition: opacity .4s ease var(--d), transform .4s var(--ease) var(--d); white-space: nowrap; }
+  .sync.in .term .tl { opacity: 1; transform: none; }
+  .term .tl em { font-style: normal; color: var(--purple2); }
+  .term .tl.ok { color: #5ee08a; }
+  .term .cur { display: inline-block; width: 10px; height: 20px; background: #fff; vertical-align: middle; animation: blink 1s steps(1) infinite; }
   .dev b { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 32px; }
   .dev small { display: block; margin-top: 10px; font-size: 19px; color: #bbb; }
   .brand { height: 48px; border-radius: 6px; }
@@ -470,7 +501,7 @@
       <div class="ag indent a left" style="--d:1.1s"><i>→</i>Synchronize on GitHub Copilot</div>
       <div class="ag indent a left" style="--d:1.2s"><i>→</i>Connect one tool</div>
       <div class="ag indent a left" style="--d:1.3s"><i>→</i>Deploy</div>
-      <div class="ag a left" style="--d:1.45s"><time>10:45</time>Conclusion Q&amp;A</div>
+      <div class="ag a left" style="--d:1.45s"><time>10:45</time>Conclusion</div>
       <div class="ag a left" style="--d:1.6s"><time>11:00</time>Q&amp;A</div>
     </div>
   </section>
@@ -511,14 +542,13 @@
       </div>
       <div data-step="1">
         <h3 class="a">Popular AI IDEs</h3>
-        <div class="tools">
-          <div class="trw head a" style="--d:.1s"><div>Tool</div><div>Company</div><div class="y">Strength</div></div>
-          <div class="trw a right" style="--d:.2s"><div class="tool"><img src="assets/logo-vscode.png" alt="" />VS Code</div><div>Microsoft</div><div class="y">Industry standard</div></div>
-          <div class="trw a right" style="--d:.3s"><div class="tool"><img src="assets/logo-cursor.png" alt="" />Cursor</div><div>Anysphere</div><div class="y">AI-first coding</div></div>
-          <div class="trw a right" style="--d:.4s"><div class="tool"><img src="assets/logo-claude.png" alt="" />Claude Code</div><div>Anthropic</div><div class="y">Agentic development</div></div>
-          <div class="trw a right" style="--d:.5s"><div class="tool"><img src="assets/logo-codex.png" alt="" />Codex</div><div>OpenAI</div><div class="y">Coding workflows</div></div>
-          <div class="trw a right" style="--d:.6s"><div class="tool"><img src="assets/logo-kiro.png" alt="" />Kiro</div><div>AWS</div><div class="y">Enterprise integration</div></div>
-          <div class="trw a right" style="--d:.7s"><div class="tool"><img src="assets/logo-antigravity.png" alt="" />Antigravity</div><div>Google</div><div class="y">Agent-first development</div></div>
+        <div class="ide-cards">
+          <article class="ide-card a right" style="--d:.1s"><div class="ide-top"><img src="assets/logo-vscode.png" alt="" /><div><h4>VS Code</h4><small>Microsoft</small></div></div><div class="ide-strength">Industry standard</div></article>
+          <article class="ide-card a right" style="--d:.2s"><div class="ide-top"><img src="assets/logo-cursor.png" alt="" /><div><h4>Cursor</h4><small>Anysphere</small></div></div><div class="ide-strength">AI-first coding</div></article>
+          <article class="ide-card a right" style="--d:.3s"><div class="ide-top"><img src="assets/logo-claude.png" alt="" /><div><h4>Claude Code</h4><small>Anthropic</small></div></div><div class="ide-strength">Agentic development</div></article>
+          <article class="ide-card a right" style="--d:.4s"><div class="ide-top"><img src="assets/logo-codex.png" alt="" /><div><h4>Codex</h4><small>OpenAI</small></div></div><div class="ide-strength">Coding workflows</div></article>
+          <article class="ide-card a right" style="--d:.5s"><div class="ide-top"><img src="assets/logo-kiro.png" alt="" /><div><h4>Kiro</h4><small>AWS</small></div></div><div class="ide-strength">Enterprise integration</div></article>
+          <article class="ide-card a right" style="--d:.6s"><div class="ide-top"><img src="assets/logo-antigravity.png" alt="" /><div><h4>Antigravity</h4><small>Google</small></div></div><div class="ide-strength">Agent-first development</div></article>
         </div>
       </div>
     </div>
@@ -527,7 +557,7 @@
   <!-- ================= SLIDE 7 ================= -->
   <section class="slide s7" data-num="7">
     <h2 class="title a blur" data-step="0">Which AI Coding Tools Do Developers Actually Use <span class="hl">at Work</span>?</h2>
-    <div class="chart" data-step="0"><svg id="chart" viewBox="0 0 1680 800"></svg></div>
+    <div class="chart" data-step="0"><svg id="chart" viewBox="0 0 1680 820"></svg></div>
     <div class="source a" data-step="0" style="--d:3s">Source: <u>JetBrains Research</u></div>
   </section>
 
@@ -539,7 +569,43 @@
       <p class="problem a" style="--d:.4s">How do multiple people work on the same project <span class="hl">without breaking it?</span></p>
     </div>
     <div class="s8-grid" data-step="1">
-      <div class="gitimg a scale"><img src="assets/git-collab.jpg" alt="" /></div>
+      <div class="gitimg gg a scale">
+        <svg viewBox="0 0 820 540">
+          <rect x="1" y="1" width="818" height="538" rx="20" fill="#131316" stroke="#2a2a31" stroke-width="2"/>
+          <circle cx="34" cy="34" r="7" fill="#ff5f57"/><circle cx="58" cy="34" r="7" fill="#febc2e"/><circle cx="82" cy="34" r="7" fill="#28c840"/>
+          <text x="112" y="41" fill="#8a8a94" font-size="19" font-family="JetBrains Mono, monospace">git log --graph</text>
+
+          <path class="gl" pathLength="1" style="--d:.3s" stroke="#c4c4cc" d="M70 290 L780 290"/>
+          <path class="gl" pathLength="1" style="--d:.8s" stroke="#a78bfa" d="M200 290 C260 290 260 170 320 170 L470 170 C530 170 530 290 580 290"/>
+          <path class="gl" pathLength="1" style="--d:1s" stroke="#4dd0e1" d="M200 290 C260 290 260 410 320 410 L620 410 C680 410 680 290 720 290"/>
+
+          <g fill="#0a0b0a" stroke-width="5">
+            <circle class="cm" style="--d:.4s" cx="80" cy="290" r="12" stroke="#c4c4cc"/>
+            <circle class="cm" style="--d:.6s" cx="200" cy="290" r="12" stroke="#c4c4cc"/>
+            <circle class="cm" style="--d:1.3s" cx="330" cy="170" r="12" stroke="#a78bfa"/>
+            <circle class="cm" style="--d:1.5s" cx="400" cy="170" r="12" stroke="#a78bfa"/>
+            <circle class="cm" style="--d:1.7s" cx="470" cy="170" r="12" stroke="#a78bfa"/>
+            <circle class="cm" style="--d:1.5s" cx="340" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:1.7s" cx="440" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:1.9s" cx="540" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:2.1s" cx="620" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:2s" cx="580" cy="290" r="15" stroke="#a78bfa" fill="#a78bfa"/>
+            <circle class="cm" style="--d:2.4s" cx="720" cy="290" r="15" stroke="#4dd0e1" fill="#4dd0e1"/>
+          </g>
+
+          <g font-family="JetBrains Mono, monospace" font-size="20" font-weight="700">
+            <text class="lb" style="--d:.6s" x="70" y="335" fill="#c4c4cc">main</text>
+            <text class="lb" style="--d:1.4s" x="300" y="130" fill="#a78bfa">Pierre · feature/login</text>
+            <text class="lb" style="--d:1.6s" x="300" y="464" fill="#4dd0e1">Oscar · feature/design</text>
+            <text class="lb" style="--d:2.1s" x="580" y="252" fill="#a78bfa" font-size="16" text-anchor="middle">merge</text>
+          </g>
+          <g class="lb" style="--d:2.7s">
+            <g class="tag"><rect x="660" y="208" width="120" height="40" rx="20" fill="#2b2240" stroke="#a78bfa" stroke-width="2"/>
+            <text x="720" y="235" fill="#fff" font-size="18" font-weight="700" text-anchor="middle">v1.0 live</text></g>
+          </g>
+          <text class="lb" style="--d:2.9s" x="410" y="512" fill="#9a9aa4" font-size="20" text-anchor="middle">Everyone works in parallel. Git merges the work safely.</text>
+        </svg>
+      </div>
       <div>
         <div class="eyebrow a" style="--d:.3s">The solution</div>
         <div class="big a" style="--d:.4s">Git = version control</div>
@@ -560,7 +626,16 @@
   <section class="slide s9" data-num="9">
     <h2 class="title a blur" data-step="0">The 3 commands everyone should know</h2>
     <div class="sync" data-step="0">
-      <div class="dev a left" style="--d:.3s"><img src="assets/laptop.png" alt="" /><b>Your computer</b><small class="mono">Local snapshot: git commit</small></div>
+      <div class="dev a left" style="--d:.3s">
+        <div class="term">
+          <div class="tb2"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>~/my-ai-app (main)</span></div>
+          <div class="tbody mono">
+            <div class="tl" style="--d:.8s"><em>$</em> git add .</div>
+            <div class="tl" style="--d:1.3s"><em>$</em> git commit -m "Add login page"</div>
+            <div class="tl ok" style="--d:1.8s">✓ 1 commit saved locally</div>
+            <div class="tl" style="--d:2.2s"><em>$</em> <span class="cur"></span></div>
+          </div>
+        </div><b>Your computer</b><small class="mono">Local snapshot: git commit</small></div>
       <div class="lanes">
         <div class="lane pull"><span class="mono lbl">git pull</span><div class="arw"><i class="pkt"></i></div></div>
         <div class="lane push"><span class="mono lbl">git push</span><div class="arw"><i class="pkt"></i></div></div>
@@ -582,13 +657,12 @@
     </div>
 
     <div class="s10-grid">
-      <div class="tbl" data-step="0">
-        <div class="tr head a" style="--d:.4s"><div>Document</div><div>Priority</div><div class="y">Purpose</div></div>
-        <div class="tr a left" style="--d:.55s"><div class="doc">PRD.md</div><div class="stars" data-n="5" data-delay="1.0"></div><div class="purpose">Defines <b>what to build, for whom, and why</b></div></div>
-        <div class="tr a left" style="--d:.7s"><div class="doc">Architecture.md</div><div class="stars" data-n="5" data-delay="1.15"></div><div class="purpose">Defines <b>how the system is structured</b> and how components interact</div></div>
-        <div class="tr a left" style="--d:.85s"><div class="doc">Design-System.md</div><div class="stars" data-n="5" data-delay="1.3"></div><div class="purpose">Ensures <b>visual consistency, branding</b> and user experience</div></div>
-        <div class="tr a left" style="--d:1.0s"><div class="doc">App-Flow.md</div><div class="stars" data-n="4" data-delay="1.45"></div><div class="purpose">Defines the <b>user journeys</b> and navigation paths</div></div>
-        <div class="tr a left" style="--d:1.15s"><div class="doc">Testing.md</div><div class="stars" data-n="4" data-delay="1.6"></div><div class="purpose">Defines <b>how to verify</b> the application works as expected</div></div>
+      <div class="context-cards" data-step="0">
+        <article class="context-card a left" style="--d:.4s"><div class="context-top"><div class="doc">PRD.md</div><div class="stars" data-n="5" data-delay="1.0"></div></div><p class="purpose">Defines <b>what to build, for whom, and why</b></p></article>
+        <article class="context-card a left" style="--d:.55s"><div class="context-top"><div class="doc">Architecture.md</div><div class="stars" data-n="5" data-delay="1.15"></div></div><p class="purpose">Defines <b>how the system is structured</b> and how components interact</p></article>
+        <article class="context-card a left" style="--d:.7s"><div class="context-top"><div class="doc">Design-System.md</div><div class="stars" data-n="5" data-delay="1.3"></div></div><p class="purpose">Ensures <b>visual consistency, branding</b> and user experience</p></article>
+        <article class="context-card a left" style="--d:.85s"><div class="context-top"><div class="doc">App-Flow.md</div><div class="stars" data-n="4" data-delay="1.45"></div></div><p class="purpose">Defines the <b>user journeys</b> and navigation paths</p></article>
+        <article class="context-card a left" style="--d:1.0s"><div class="context-top"><div class="doc">Testing.md</div><div class="stars" data-n="4" data-delay="1.6"></div></div><p class="purpose">Defines <b>how to verify</b> the application works as expected</p></article>
       </div>
 
       <div class="qcol" data-step="1">
@@ -864,23 +938,24 @@
   });
 
   // Animated chart (JetBrains AI Pulse data)
-  const X = [260, 640, 850, 1000], Y = v => 660 - 15 * v;
+  const X = [240, 720, 980, 1180], Y = v => 680 - 15.5 * v;
   const series = [
-    { name: "GitHub Copilot", c: "#4f8cf7", last: 29, ly: 225, pts: [[0, 25, -1], [1, 29, -1], [2, 31, -1], [3, 29, 0]] },
-    { name: "JetBrains AI Assistant", c: "#ffffff", last: 11, ly: 495, pts: [[0, 5, -1], [1, 13, -1], [2, 11, 1], [3, 11, 0]] },
-    { name: "Cursor", c: "#a6a6ad", last: 18, ly: 418, pts: [[0, 1, -1], [1, 12, 1], [2, 16, -1], [3, 18, 0]] },
-    { name: "Claude Code", c: "#e8825f", last: 18, ly: 380, pts: [[1, 3, -1], [2, 12, -1], [3, 18, 0]] },
-    { name: "Codex", c: "#7a6cf0", last: 3, ly: 620, pts: [[1, 0, 0], [2, 1, -1], [3, 3, 0]] },
-    { name: "Google Antigravity", c: "#5fa8ff", last: 6, ly: 572, pts: [[3, 6, 0]] }
+    { name: "GitHub Copilot", c: "#4f8cf7", last: 29, ly: 230, pts: [[0, 25, -1], [1, 29, -1], [2, 31, -1], [3, 29, 0]] },
+    { name: "JetBrains AI Assistant", c: "#ffffff", last: 11, ly: 508, pts: [[0, 5, -1], [1, 13, -1], [2, 11, 1], [3, 11, 0]] },
+    { name: "Cursor", c: "#a6a6ad", last: 18, ly: 438, pts: [[0, 1, -1], [1, 12, 1], [2, 16, -1], [3, 18, 0]] },
+    { name: "Claude Code", c: "#e8825f", last: 18, ly: 394, pts: [[1, 3, -1], [2, 12, -1], [3, 18, 0]] },
+    { name: "Codex", c: "#7a6cf0", last: 3, ly: 634, pts: [[1, 0, 0], [2, 1, -1], [3, 3, 0]] },
+    { name: "Google Antigravity", c: "#5fa8ff", last: 6, ly: 586, pts: [[3, 6, 0]] }
   ];
   const xl = [["Apr-Jun 2024", "Developer Ecosystem Survey", "(N=13,647)"], ["Apr-Jun 2025", "Developer Ecosystem Survey", "(N=16,714)"], ["Sep 2025", "AI Pulse", "(N=5,763)"], ["Jan 2026", "AI Pulse", "(N=10,739)"]];
   let svg = "";
-  [[40, 60], [20, 360], [0, 660]].forEach(([v, y]) => {
-    svg += `<line class="ch-grid" x1="150" x2="1180" y1="${y}" y2="${y}"/><text class="ch-axis" x="135" y="${y + 7}" text-anchor="end">${v}%</text>`;
+  [40, 20, 0].forEach(v => {
+    const y = Y(v);
+    svg += `<line class="ch-grid" x1="150" x2="1200" y1="${y}" y2="${y}"/><text class="ch-axis" x="135" y="${y + 8}" text-anchor="end">${v}%</text>`;
   });
-  svg += `<text class="ch-axis" transform="translate(50 360) rotate(-90)" text-anchor="middle">% of developers using this tool at work</text>`;
+  svg += `<text class="ch-axis" transform="translate(50 370) rotate(-90)" text-anchor="middle">% of developers using this tool at work</text>`;
   xl.forEach((lines, i) => lines.forEach((t, j) => {
-    svg += `<text class="ch-axis" x="${X[i]}" y="${700 + j * 25}" text-anchor="middle" style="font-size:${j ? 16 : 18}px;fill:${j ? "#7a7a84" : "#c4c4cc"}">${t}</text>`;
+    svg += `<text class="ch-axis" x="${X[i]}" y="${722 + j * 28}" text-anchor="middle" style="font-size:${j ? 18 : 21}px;fill:${j ? "#7a7a84" : "#c4c4cc"}">${t}</text>`;
   }));
   series.forEach((s, i) => {
     const d0 = 0.4 + i * 0.25;
@@ -893,7 +968,7 @@
       svg += `<circle class="ch-pt" cx="${X[xi]}" cy="${Y(v)}" r="8" fill="${s.c}" stroke="#0a0b0a" stroke-width="3" style="--d:${pd}s"/>`;
       if (pos) svg += `<text class="ch-val" x="${X[xi]}" y="${Y(v) + (pos < 0 ? -18 : 32)}" fill="${s.c}" style="--d:${pd}s">${v}%</text>`;
     });
-    svg += `<text class="ch-leg" x="1050" y="${s.ly + 8}" fill="${s.c}" style="--d:${(d0 + 1.7).toFixed(2)}s">${s.last}% — ${s.name}</text>`;
+    svg += `<text class="ch-leg" x="1225" y="${s.ly + 8}" fill="${s.c}" style="--d:${(d0 + 1.7).toFixed(2)}s">${s.last}% — ${s.name}</text>`;
   });
   document.getElementById("chart").innerHTML = svg;
 
