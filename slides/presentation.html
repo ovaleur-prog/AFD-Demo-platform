@@ -432,6 +432,41 @@
              -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 4s linear infinite; }
   .s15 .thanks { position: relative; margin-top: 30px; font-size: 40px; font-weight: 300; color: #d6d6de; }
   .s15 .names { position: relative; margin-top: 50px; font-size: 22px; letter-spacing: 3px; color: var(--grey); text-transform: uppercase; }
+
+  /* ---------- Understanding the journey ---------- */
+  .def { margin: 30px auto 0; max-width: 1500px; padding: 26px 40px; border-radius: 18px; text-align: center; font-size: 30px; font-weight: 300; line-height: 1.45;
+         border: 1px solid rgba(139,92,246,.45); background: linear-gradient(120deg, rgba(139,92,246,.16), rgba(19,19,22,.6)); }
+  .def b { color: #fff; font-weight: 600; }
+  .jr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
+  .jr-head { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; }
+  .jr-head .n { font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 700; padding: 8px 14px; border-radius: 10px; background: var(--purple-dark); color: var(--purple2); }
+  .jr-head h3 { margin: 0; font-size: 34px; font-weight: 700; }
+  .jr-lead { margin: 0 0 22px; font-size: 23px; font-weight: 300; line-height: 1.5; color: #cfcfd8; }
+  .jr-lead b { color: #fff; font-weight: 600; }
+  .guard { display: flex; align-items: center; gap: 18px; height: 70px; margin-bottom: 12px; padding: 0 24px; border-radius: 14px; font-size: 23px;
+           border: 1px solid rgba(94,224,138,.3); background: rgba(94,224,138,.06); }
+  .guard .ico { font-size: 30px; color: #5ee08a; flex: none; }
+  .guard small { margin-left: auto; font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); }
+  .req { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 14px; padding: 18px 24px; border-radius: 14px; border: 1px solid var(--line); background: rgba(19,19,22,.75); font-size: 22px; line-height: 1.4; }
+  .req .ico { font-size: 30px; color: var(--purple2); flex: none; margin-top: 2px; }
+  .req b { font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .chips span { font-family: "JetBrains Mono", monospace; font-size: 17px; padding: 6px 12px; border-radius: 8px; background: var(--purple-dark); color: var(--purple2);
+                opacity: 0; transform: scale(.6); transition: opacity .4s ease var(--d), transform .5s var(--spring) var(--d); }
+  [data-step].in .chips span { opacity: 1; transform: none; }
+
+  /* ---------- Best practices ---------- */
+  .tips-grid { display: grid; grid-template-columns: 820px 1fr; gap: 44px; margin-top: 30px; }
+  .tips-grid .eyebrow { display: block; margin-bottom: 18px; }
+  .tip { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 10px; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--line); background: rgba(19,19,22,.75); font-size: 20px; line-height: 1.4; }
+  .tip i { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 700; background: var(--purple-dark); color: var(--purple2); }
+  .tip.warn { border-color: rgba(255,107,107,.5); background: rgba(255,80,80,.08); }
+  .tip.warn i { background: rgba(255,107,107,.18); color: #ff8a8a; font-size: 18px; }
+  .tip.warn b { color: #ff8a8a; }
+  .adv { margin-bottom: 12px; padding: 14px 20px; border-radius: 14px; font-size: 18px; line-height: 1.42; color: #cfcfd8;
+         border: 1px solid rgba(139,92,246,.4); background: linear-gradient(120deg, rgba(139,92,246,.14), rgba(19,19,22,.6)); }
+  .adv b { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; font-size: 20px; color: #fff; }
+  .adv b .ico { font-size: 26px; color: var(--cyan); }
 </style>
 </head>
 <body>
@@ -451,6 +486,10 @@
     <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="5" r="2.2"/><path d="M8.2 19H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.8"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16.5 9"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
     <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1-2 5-2 5s4-.5 5-2M9 15l-3-3c1.5-5 6-9 13-9 0 7-4 11.5-9 13z"/><circle cx="14.5" cy="9.5" r="1.6"/></symbol>
     <linearGradient id="lnGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#4dd0e1"/><stop offset="1" stop-color="#8b5cf6"/>
@@ -776,8 +815,65 @@
     <div class="cta a scale" data-step="1" style="--d:2.7s">Let's build it <span>&rarr;</span></div>
   </section>
 
-  <!-- ================= SLIDE 14 ================= -->
-  <section class="slide s14" data-num="14">
+  <!-- ================= SLIDE 14: UNDERSTANDING THE JOURNEY ================= -->
+  <section class="slide" data-num="14">
+    <div data-step="0">
+      <h2 class="title a blur">Understanding the <span class="hl">Journey</span></h2>
+      <p class="def a scale" style="--d:.3s">An <b>Agent App</b> is a small business application that relies on <span class="hl">AI services</span> to perform <b>one targeted task</b>.</p>
+    </div>
+
+    <div class="jr-grid">
+      <div data-step="1">
+        <div class="jr-head a left"><span class="n">01</span><h3>Who is responsible for what</h3></div>
+        <p class="jr-lead a left" style="--d:.15s">Vibe coding <b>accelerates design and delivery</b>, but it does not replace:</p>
+        <div class="guard a left" style="--d:.35s"><svg class="ico"><use href="#i-user"/></svg>Business validation<small>Business team</small></div>
+        <div class="guard a left" style="--d:.5s"><svg class="ico"><use href="#i-check"/></svg>Development team reviews &amp; checks<small>Dev team</small></div>
+        <div class="guard a left" style="--d:.65s"><svg class="ico"><use href="#i-target"/></svg>The decision to integrate the app<small>Decision makers</small></div>
+      </div>
+
+      <div data-step="2">
+        <div class="jr-head a right"><span class="n">02</span><h3>Technical prerequisites</h3></div>
+        <p class="jr-lead a right" style="--d:.15s">To build an Agent App on your computer, you will need:</p>
+        <div class="req a right" style="--d:.3s"><svg class="ico"><use href="#i-code"/></svg><div><b>Visual Studio Code</b> and the <b>GitHub Copilot Chat</b> extension</div></div>
+        <div class="req a right" style="--d:.45s"><svg class="ico"><use href="#i-spark"/></svg><div>An <b>active GitHub Copilot license</b></div></div>
+        <div class="req a right" style="--d:.6s"><svg class="ico"><use href="#i-box"/></svg><div>Local tooling
+          <div class="chips"><span style="--d:.9s">Git</span><span style="--d:1s">Python ≥ 3.14</span><span style="--d:1.1s">Node.js ≥ 22 + npm</span><span style="--d:1.2s">Azure CLI</span><span style="--d:1.3s">uv</span></div></div></div>
+        <div class="req a right" style="--d:.75s"><svg class="ico"><use href="#i-git"/></svg><div>Access to the <b>dedicated GitLab repository</b> for your project</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 15: BEST PRACTICES ================= -->
+  <section class="slide" data-num="15">
+    <div data-step="0">
+      <h2 class="title a blur">Best Practices &amp; <span class="hl">Limits</span></h2>
+      <p class="sub a" style="--d:.25s">Tips for effective vibe coding</p>
+    </div>
+
+    <div class="tips-grid">
+      <div data-step="0">
+        <span class="eyebrow a" style="--d:.35s">The essentials</span>
+        <div class="tip a left" style="--d:.45s"><i>1</i><div><b>Describe the need with concrete examples:</b> who will use the app, in which situation, and what result is expected.</div></div>
+        <div class="tip a left" style="--d:.55s"><i>2</i><div><b>One feature or change at a time;</b> say what must change and what must stay the same.</div></div>
+        <div class="tip a left" style="--d:.65s"><i>3</i><div><b>Read and confirm</b> the business summary and scope before asking for the build.</div></div>
+        <div class="tip a left" style="--d:.75s"><i>4</i><div><b>Give feedback on the visual prototype</b> before asking for the real features.</div></div>
+        <div class="tip a left" style="--d:.85s"><i>5</i><div><b>Test with representative examples,</b> then explain precisely what looks wrong.</div></div>
+        <div class="tip a left" style="--d:.95s"><i>6</i><div><b>Ask for a clear report</b> of the checks performed and the remaining open points.</div></div>
+        <div class="tip warn a left" style="--d:1.1s"><i><svg class="ico"><use href="#i-lock"/></svg></i><div><b>Never share a password, token or key</b> in a conversation or in the code.</div></div>
+      </div>
+
+      <div data-step="1">
+        <span class="eyebrow a">Advanced tips</span>
+        <div class="adv a right" style="--d:.15s"><b><svg class="ico"><use href="#i-spark"/></svg>Match the model to the task</b>Adapt the model and reasoning effort to the task's complexity. If Auto mode isn't good enough, explicitly pick a more capable model, and follow your team's recommendations when they exist.</div>
+        <div class="adv a right" style="--d:.3s"><b><svg class="ico"><use href="#i-target"/></svg>Be precise</b>Give context, users, constraints, examples and the expected result. You can ask the AI to improve your initial prompt, then check it matches your need and contains no secrets.</div>
+        <div class="adv a right" style="--d:.45s"><b><svg class="ico"><use href="#i-route"/></svg>Stuck after several exchanges?</b>Ask for a full diagnosis, a resolution plan, then its implementation. Raise the model level and reasoning effort if needed.</div>
+        <div class="adv a right" style="--d:.6s"><b><svg class="ico"><use href="#i-image"/></svg>Attach a screenshot</b>Illustrate a problem when useful, and mask tokens, personal data and confidential information.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 16 ================= -->
+  <section class="slide s14" data-num="16">
     <div data-step="0">
       <h2 class="title a blur">Conclusion: <span class="hl">Key Takeaways</span></h2>
       <p class="sub a" style="--d:.25s">Building AI-powered applications is no longer limited to software engineers. With the right tools, documentation and AI assistants, <strong style="color:#fff;font-weight:600">anyone can accelerate the journey from an idea to a working prototype</strong>.</p>
@@ -820,8 +916,8 @@
     </div>
   </section>
 
-  <!-- ================= SLIDE 15 ================= -->
-  <section class="slide divider s15" data-num="15">
+  <!-- ================= SLIDE 17 ================= -->
+  <section class="slide divider s15" data-num="17">
     <div class="dside l a left" data-step="0"><div class="img"></div></div>
     <div class="dside r a right" data-step="0"><div class="img"></div></div>
     <div data-step="0">
