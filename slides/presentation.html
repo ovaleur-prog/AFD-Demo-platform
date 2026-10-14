@@ -467,14 +467,35 @@
          border: 1px solid rgba(139,92,246,.4); background: linear-gradient(120deg, rgba(139,92,246,.14), rgba(19,19,22,.6)); }
   .adv b { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; font-size: 20px; color: #fff; }
   .adv b .ico { font-size: 26px; color: var(--cyan); }
-    .conv-overlay { z-index: 4; }
-    .conv-card { width: 1450px; }
-    .conv-card h3 { margin: 0 0 14px; font-size: 48px; }
-    .conv-card > p { margin: 0 auto 34px; color: var(--grey); font-size: 24px; }
-    .conv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: left; }
-    .conv-tip { min-height: 150px; display: flex; gap: 20px; padding: 24px 26px; border: 1px solid rgba(139,92,246,.4); border-radius: 14px; background: rgba(19,19,22,.9); font-size: 21px; line-height: 1.45; color: #cfcfd8; }
-    .conv-tip b { color: #fff; font-weight: 600; }
-    .conv-tip .n { flex: none; color: var(--purple2); font: 700 18px "JetBrains Mono", monospace; }
+    .conv-overlay { z-index: 4; background: rgba(6,6,8,.94); }
+    .conv-card { width: 1600px; }
+    .conv-card h3 { margin: 0 0 30px; font-size: 48px; text-align: center; }
+    .ceq { display: flex; justify-content: center; align-items: center; gap: 22px; }
+    .ceq-chip { display: flex; align-items: center; gap: 14px; padding: 18px 34px; border-radius: 16px; font: 700 34px "JetBrains Mono", monospace;
+                background: linear-gradient(var(--bg), var(--bg)) padding-box, linear-gradient(120deg, var(--purple), var(--cyan)) border-box; border: 2px solid transparent; box-shadow: 0 0 40px rgba(139,92,246,.3); }
+    .ceq-chip .ico { font-size: 38px; color: var(--cyan); }
+    .ceq-op { font-size: 44px; color: var(--purple2); }
+    .cvs { display: grid; grid-template-columns: 1fr 1.5fr; gap: 26px; margin-top: 36px; text-align: left; }
+    .cv { position: relative; padding: 26px 26px 18px; border-radius: 16px; }
+    .cv.bad { border: 1px solid rgba(255,107,107,.5); background: rgba(255,80,80,.07); }
+    .cv.good { border: 1px solid rgba(94,224,138,.5); background: rgba(94,224,138,.06); }
+    .cv-tag { position: absolute; top: -16px; left: 20px; display: flex; align-items: center; gap: 8px; padding: 4px 14px; border-radius: 999px; font: 700 16px "JetBrains Mono", monospace; text-transform: uppercase; background: var(--bg); }
+    .cv.bad .cv-tag { color: #ff8a8a; border: 1px solid rgba(255,107,107,.6); }
+    .cv.good .cv-tag { color: #5ee08a; border: 1px solid rgba(94,224,138,.6); }
+    .cv-tag .ico { font-size: 20px; }
+    .threads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .thread { display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 12px 12px 12px 4px; background: #1a1a1f; border: 1px solid var(--line); }
+    .thread span { padding: 6px 10px; border-radius: 8px; font-size: 18px; background: var(--purple-dark); color: #fff; }
+    .cv.bad .thread span:nth-child(2) { background: rgba(77,208,225,.18); }
+    .cv.bad .thread span:nth-child(3) { background: rgba(240,139,101,.2); }
+    .thread em { font: 600 14px "JetBrains Mono", monospace; font-style: normal; color: var(--cyan); }
+    .cv small { display: block; margin-top: 12px; font-size: 17px; color: var(--grey); }
+    .ctips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 26px; text-align: left; }
+    .ctip { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 14px; border: 1px solid var(--line); background: rgba(19,19,22,.9); }
+    .ctip .ico { font-size: 30px; color: var(--purple2); }
+    .ctip b { font-size: 20px; }
+    .ctip span { font-size: 16px; color: #cfcfd8; line-height: 1.35; }
+    .ctip code { color: var(--cyan); }
 .mspec { position: relative; margin-top: 50px; }
   .mspec .axis { display: flex; justify-content: space-between; margin: 0 40px 14px; font: 700 15px "JetBrains Mono", monospace; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); }
   .mspec .bar { position: absolute; left: 140px; right: 140px; top: 98px; height: 8px; border-radius: 8px; background: linear-gradient(90deg, var(--cyan), var(--purple2), #f08b65);
@@ -1070,12 +1091,24 @@
     <div class="overlay conv-overlay" data-step="2">
       <div class="conv-card">
         <h3 class="a blur">Keep Your <span class="hl">Conversations Focused</span></h3>
-        <p class="a" style="--d:.15s">Give each chat one clear goal and only the context it needs.</p>
-        <div class="conv-grid">
-          <div class="conv-tip a left" style="--d:.25s"><span class="n">01</span><div><b>One feature or bug, one conversation.</b> Start a new thread when the goal changes, such as moving from a login form to CI/CD configuration.</div></div>
-          <div class="conv-tip a right" style="--d:.4s"><span class="n">02</span><div><b>Set the context explicitly.</b> At the start of each thread, reference only the relevant code with <code>#file</code>, <code>#folder</code> or <code>@workspace</code>.</div></div>
-          <div class="conv-tip a left" style="--d:.55s"><span class="n">03</span><div><b>Rename and archive your chats.</b> Use your extension's chat history to keep active sessions clearly named and easy to find.</div></div>
-          <div class="conv-tip a right" style="--d:.7s"><span class="n">04</span><div><b>Restart when you're stuck.</b> If the AI loops or repeats the same mistake, start a fresh thread and explain the problem again with only the relevant code.</div></div>
+        <div class="ceq">
+          <div class="ceq-chip a scale" style="--d:.2s"><svg class="ico"><use href="#i-chat"/></svg>1 Chat</div><span class="ceq-op a" style="--d:.35s">=</span>
+          <div class="ceq-chip a scale" style="--d:.45s"><svg class="ico"><use href="#i-spark"/></svg>1 Model</div><span class="ceq-op a" style="--d:.6s">=</span>
+          <div class="ceq-chip a scale" style="--d:.7s"><svg class="ico"><use href="#i-target"/></svg>1 Task</div>
+        </div>
+        <div class="cvs">
+          <div class="cv bad a left" style="--d:.9s"><span class="cv-tag"><svg class="ico"><use href="#i-x"/></svg>Don't</span>
+            <div class="thread"><span>Generate slides</span><span>Login feature</span><span>CI/CD bug</span></div>
+            <small>One thread, mixed goals → diluted context</small></div>
+          <div class="cv good a right" style="--d:1.1s"><span class="cv-tag"><svg class="ico"><use href="#i-check"/></svg>Do</span>
+            <div class="threads"><div class="thread"><span>Generate slides</span><em>Claude Opus 5.5</em></div><div class="thread"><span>Login feature</span><em>Claude Sonnet 5</em></div><div class="thread"><span>CI/CD bug</span><em>GPT-6 Luna</em></div></div>
+            <small>Specialized model + isolated context → focused work</small></div>
+        </div>
+        <div class="ctips">
+          <div class="ctip a" style="--d:1.3s"><svg class="ico"><use href="#i-chat"/></svg><b>New goal, new chat</b><span>Open a fresh thread when the objective changes.</span></div>
+          <div class="ctip a" style="--d:1.4s"><svg class="ico"><use href="#i-target"/></svg><b>Pin the context</b><span><code>#file</code> <code>#folder</code> <code>@workspace</code></span></div>
+          <div class="ctip a" style="--d:1.5s"><svg class="ico"><use href="#i-doc"/></svg><b>Name &amp; archive</b><span>Keep chat history clear and findable.</span></div>
+          <div class="ctip a" style="--d:1.6s"><svg class="ico"><use href="#i-route"/></svg><b>Stuck? Restart clean</b><span>New thread, only the relevant code.</span></div>
         </div>
       </div>
     </div>
