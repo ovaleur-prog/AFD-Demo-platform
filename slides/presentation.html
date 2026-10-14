@@ -467,6 +467,25 @@
          border: 1px solid rgba(139,92,246,.4); background: linear-gradient(120deg, rgba(139,92,246,.14), rgba(19,19,22,.6)); }
   .adv b { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; font-size: 20px; color: #fff; }
   .adv b .ico { font-size: 26px; color: var(--cyan); }
+
+  /* ---------- Demo documents ---------- */
+  .docs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 36px; }
+  .doccard { display: flex; flex-direction: column; height: 700px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #16161a; box-shadow: 0 30px 80px rgba(91,43,214,.18); }
+  .doccard header { display: flex; align-items: center; gap: 10px; padding: 14px 18px; font: 700 18px "JetBrains Mono", monospace; }
+  .doccard header .ico { font-size: 24px; color: var(--purple2); }
+  .doccard header small { margin-left: auto; padding: 4px 10px; border-radius: 6px; background: var(--purple-dark); color: var(--purple2); font-size: 12px; letter-spacing: 1px; }
+  .paper { position: relative; flex: 1; margin: 0 12px 12px; overflow: hidden; border-radius: 10px; background: #fafafa; color: #222; font-family: Georgia, "Times New Roman", serif; }
+  .paper::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: linear-gradient(transparent, #fafafa); }
+  .paper .scroll { padding: 20px 22px 60px; animation: docScroll 24s ease-in-out infinite alternate; animation-play-state: paused; }
+  [data-step].in .paper .scroll { animation-play-state: running; }
+  @keyframes docScroll { 0%, 12% { transform: translateY(0); } 88%, 100% { transform: translateY(calc(-100% + 630px)); } }
+  .paper h1 { margin: 0 0 12px; font-size: 25px; line-height: 1.15; }
+  .paper h2 { margin: 16px 0 6px; font-size: 19px; }
+  .paper h3 { margin: 12px 0 4px; font-size: 16px; }
+  .paper p, .paper li { margin: 0 0 6px; font-size: 14px; line-height: 1.4; }
+  .paper ul { margin: 0 0 8px; padding-left: 20px; }
+  .paper .ok { list-style: none; padding-left: 0; }
+  .paper .ok li::before { content: "✓ "; color: #1a9e45; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -722,6 +741,47 @@
 
   <!-- ================= SLIDE 11 ================= -->
   <section class="slide" data-num="11">
+    <div data-step="0">
+      <h2 class="title a blur">Connectors: Giving AI <span class="hl">Access to Data</span></h2>
+      <p class="sub a" style="--d:.25s">Without data, an AI agent is <strong style="color:#fff;font-weight:600">just a chatbot</strong>.</p>
+    </div>
+
+    <div class="s11-grid">
+      <div class="hub" data-step="0">
+        <svg viewBox="0 -40 800 780">
+          <path class="ln" pathLength="1" style="--d:.5s" d="M400 80 L400 350"/>
+          <path class="ln" pathLength="1" style="--d:.6s" d="M634 215 L400 350"/>
+          <path class="ln" pathLength="1" style="--d:.7s" d="M634 485 L400 350"/>
+          <path class="ln" pathLength="1" style="--d:.8s" d="M400 620 L400 350"/>
+          <path class="ln" pathLength="1" style="--d:.9s" d="M166 485 L400 350"/>
+          <path class="ln" pathLength="1" style="--d:1.0s" d="M166 215 L400 350"/>
+
+          <g class="pk" fill="#4dd0e1">
+            <circle r="6"><animateMotion dur="1.8s" repeatCount="indefinite" path="M400 80 L400 350"/></circle>
+            <circle r="6"><animateMotion dur="1.8s" begin=".3s" repeatCount="indefinite" path="M634 215 L400 350"/></circle>
+            <circle r="6"><animateMotion dur="1.8s" begin=".6s" repeatCount="indefinite" path="M634 485 L400 350"/></circle>
+            <circle r="6"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite" path="M400 620 L400 350"/></circle>
+            <circle r="6"><animateMotion dur="1.8s" begin="1.2s" repeatCount="indefinite" path="M166 485 L400 350"/></circle>
+            <circle r="6"><animateMotion dur="1.8s" begin="1.5s" repeatCount="indefinite" path="M166 215 L400 350"/></circle>
+          </g>
+
+          <g transform="translate(400 350)">
+            <g class="core">
+              <circle class="ring" r="100"/>
+              <circle class="ring r2" r="100"/>
+              <circle r="100" fill="url(#coreGrad)"/>
+              <text y="-4" text-anchor="middle" fill="#fff" font-size="30" font-weight="700">AI Agent</text>
+              <text y="30" text-anchor="middle" fill="#e7deff" font-size="17">+ your context</text>
+            </g>
+          </g>
+
+          <g transform="translate(400 80)"><g class="node" style="--d:.5s"><circle class="bgc" r="60"/><use href="#i-figma" x="-24" y="-24" width="48" height="48" class="ico" style="color:#ff7262"/><text y="-80">Figma</text></g></g>
+          <g transform="translate(634 215)"><g class="node" style="--d:.6s"><circle class="bgc" r="60"/><use href="#i-share" x="-24" y="-24" width="48" height="48" class="ico" style="color:#38b2ac"/><text y="92">SharePoint</text></g></g>
+          <g transform="translate(634 485)"><g class="node" style="--d:.7s"><circle class="bgc" r="60"/><use href="#i-git" x="-24" y="-24" width="48" height="48" class="ico" style="color:#fff"/><text y="92">GitHub</text></g></g>
+          <g transform="translate(400 620)"><g class="node" style="--d:.8s"><circle class="bgc" r="60"/><use href="#i-db" x="-24" y="-24" width="48" height="48" class="ico" style="color:#f2c94c"/><text y="92">Databases</text></g></g>
+          <g transform="translate(166 485)"><g class="node" style="--d:.9s"><circle class="bgc" r="60"/><use href="#i-api" x="-24" y="-24" width="48" height="48" class="ico" style="color:#4dd0e1"/><text y="92">APIs</text></g></g>
+          <g transform="translate(166 215)"><g class="node" style="--d:1.0s"><circle class="bgc" r="60"/><use href="#i-doc" x="-24" y="-24" width="48" height="48" class="ico" style="color:#a78bfa"/><text y="92">Documents</text></g></g>
+        </svg>
       </div>
 
       <div class="ex">
@@ -815,8 +875,112 @@
     <div class="cta a scale" data-step="1" style="--d:2.7s">Let's build it <span>&rarr;</span></div>
   </section>
 
-  <!-- ================= SLIDE 14: UNDERSTANDING THE JOURNEY ================= -->
+  <!-- ================= SLIDE 14: DEMO DOCUMENTS ================= -->
   <section class="slide" data-num="14">
+    <div data-step="0">
+      <h2 class="title a blur">Our Demo <span class="hl">Context Pack</span></h2>
+      <p class="sub a" style="--d:.25s">The documents we will give the AI to build a <strong style="color:#fff;font-weight:600">Solar Grid Monitoring Dashboard</strong>.</p>
+    </div>
+    <div class="docs" data-step="0">
+      <article class="doccard a" style="--d:.4s">
+        <header><svg class="ico"><use href="#i-doc"/></svg>PRD.md<small>WHAT</small></header>
+        <div class="paper"><div class="scroll">
+          <h1>Solar Grid Monitoring Dashboard</h1>
+          <h2>Overview</h2>
+          <p>A web application that enables energy operators to monitor solar energy production across multiple African regions.</p>
+          <p>The platform provides real-time visibility into energy generation, network performance, equipment health, and operational alerts through a modern and intuitive dashboard.</p>
+          <h2>Problem Statement</h2>
+          <p>Energy operators often manage multiple solar installations spread across large geographic areas.</p>
+          <p>Monitoring production, identifying anomalies, and understanding regional performance can be time-consuming when information is distributed across several systems.</p>
+          <p>A centralized dashboard is needed to simplify monitoring and improve decision-making.</p>
+          <h2>Target Users</h2>
+          <ul><li>Grid Operators</li><li>Energy Analysts</li><li>Operations Managers</li><li>Executive Stakeholders</li></ul>
+          <h2>Objectives</h2>
+          <ul><li>Centralize operational data</li><li>Visualize production metrics</li><li>Detect anomalies quickly</li><li>Track asset performance</li><li>Support operational and strategic decisions</li></ul>
+          <h2>Success Criteria</h2>
+          <ul><li>Users can identify underperforming regions in less than 30 seconds</li><li>Users can view key production KPIs at a glance</li><li>Users can monitor active alerts</li><li>Users can compare performance across regions</li></ul>
+          <h2>Core Features</h2>
+          <h3>Dashboard Overview</h3><ul><li>Total Energy Production</li><li>Active Solar Sites</li><li>Network Availability</li><li>Active Alerts</li></ul>
+          <h3>Regional Monitoring</h3><ul><li>Production by region</li><li>Production trends</li><li>Regional comparison</li></ul>
+          <h3>Interactive Map</h3><ul><li>Solar sites</li><li>Site status</li><li>Regional performance</li></ul>
+          <h3>Alert Center</h3><ul><li>Equipment issues</li><li>Production anomalies</li><li>Network outages</li></ul>
+          <h3>Production Forecast</h3><ul><li>7-day forecast</li><li>Trend projections</li><li>Expected production evolution</li></ul>
+          <h2>Non-Functional Requirements</h2>
+          <ul><li>Responsive Design</li><li>Fast Loading</li><li>Accessible Interface</li><li>Mobile Compatible</li></ul>
+        </div></div>
+      </article>
+
+      <article class="doccard a" style="--d:.55s">
+        <header><svg class="ico"><use href="#i-box"/></svg>Architecture.md<small>HOW</small></header>
+        <div class="paper"><div class="scroll">
+          <h1>Architecture</h1>
+          <h2>Overview</h2>
+          <p>The application follows a modern web architecture composed of a frontend, mock data layer and future API integrations.</p>
+          <h2>Components</h2>
+          <h3>Frontend</h3>
+          <p>Technology:</p><ul><li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind CSS</li></ul>
+          <p>Responsibilities:</p><ul><li>Dashboard rendering</li><li>Data visualization</li><li>User interaction</li><li>Filtering</li></ul>
+          <h3>Data Layer</h3>
+          <p>Mock JSON datasets simulating:</p><ul><li>Solar production</li><li>Site information</li><li>Network health</li><li>Alerts</li></ul>
+          <p>Future integrations may include:</p><ul><li>IoT Sensors</li><li>SCADA Systems</li><li>Energy APIs</li><li>Data Warehouses</li></ul>
+          <h3>Visualization Layer</h3>
+          <ul><li>KPI Cards</li><li>Charts</li><li>Maps</li><li>Alert Tables</li></ul>
+          <h2>Data Flow</h2>
+          <p>Energy Sources ↓ Data Layer ↓ Business Logic ↓ Dashboard Components ↓ End User</p>
+          <h2>Security Principles</h2>
+          <ul><li>Read-only operational data</li><li>No sensitive personal information</li><li>Secure API access for future integrations</li></ul>
+          <h2>Scalability</h2>
+          <ul><li>Additional countries</li><li>Additional solar sites</li><li>New energy sources</li><li>More datasets</li></ul>
+        </div></div>
+      </article>
+
+      <article class="doccard a" style="--d:.7s">
+        <header><svg class="ico"><use href="#i-route"/></svg>App-Flow.md<small>JOURNEYS</small></header>
+        <div class="paper"><div class="scroll">
+          <h1>Application Flow</h1>
+          <h2>Entry Point</h2>
+          <p>User lands on the Dashboard Homepage.</p>
+          <h3>Dashboard Overview</h3>
+          <p>User can view:</p><ul><li>Total Production</li><li>Active Sites</li><li>Availability</li><li>Alerts</li></ul>
+          <p>Available actions:</p><ul><li>Open Regional Analysis</li><li>Open Map View</li><li>Open Alert Center</li><li>Open Forecast View</li></ul>
+          <h2>Regional Analysis Flow</h2>
+          <p>Dashboard ↓ Regional Analysis</p><ul><li>Select a region</li><li>Compare regions</li><li>Analyze trends</li></ul>
+          <h2>Map View Flow</h2>
+          <p>Dashboard ↓ Interactive Map</p><ul><li>Click on a solar site</li><li>View site details</li><li>View production metrics</li><li>Access active alerts</li></ul>
+          <h2>Alert Management Flow</h2>
+          <p>Dashboard ↓ Alert Center</p><ul><li>View alert list</li><li>Filter alerts</li><li>Sort by severity</li><li>Open alert details</li></ul>
+          <h2>Forecast Flow</h2>
+          <p>Dashboard ↓ Forecasting</p><ul><li>View future production</li><li>Compare projections</li><li>Analyze expected trends</li></ul>
+          <h2>Navigation Principles</h2>
+          <ul><li>Maximum 3 clicks to reach any feature</li><li>Clear and intuitive user journey</li><li>Consistent navigation across pages</li></ul>
+        </div></div>
+      </article>
+
+      <article class="doccard a" style="--d:.85s">
+        <header><svg class="ico"><use href="#i-check"/></svg>Testing.md<small>VERIFY</small></header>
+        <div class="paper"><div class="scroll">
+          <h1>Testing Strategy</h1>
+          <h2>Objective</h2>
+          <p>Ensure the application functions correctly, displays reliable information and provides a seamless user experience.</p>
+          <h2>Functional Testing</h2>
+          <ul class="ok"><li>Dashboard loads correctly</li><li>KPI cards display values</li><li>Charts render correctly</li><li>Map displays all sites</li><li>Alert center displays alerts</li><li>Forecast section displays future projections</li></ul>
+          <h2>Navigation Testing</h2>
+          <ul class="ok"><li>Navigation menu works</li><li>Links redirect correctly</li><li>Filters function properly</li><li>User can return to dashboard from all pages</li></ul>
+          <h2>Responsiveness Testing</h2>
+          <ul class="ok"><li>Desktop experience</li><li>Tablet experience</li><li>Mobile experience</li></ul>
+          <h2>User Experience Testing</h2>
+          <ul class="ok"><li>Information is easy to understand</li><li>Layout remains consistent</li><li>No visual defects</li><li>Loading times remain acceptable</li></ul>
+          <h2>Acceptance Criteria</h2>
+          <ul><li>All pages load successfully</li><li>No critical errors are present</li><li>All data visualizations work</li><li>Navigation works end-to-end</li><li>Responsive behavior is validated</li></ul>
+          <h2>Future Enhancements</h2>
+          <ul><li>Automated testing</li></ul>
+        </div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 15: UNDERSTANDING THE JOURNEY ================= -->
+  <section class="slide" data-num="15">
     <div data-step="0">
       <h2 class="title a blur">Understanding the <span class="hl">Journey</span></h2>
       <p class="def a scale" style="--d:.3s">An <b>Agent App</b> is a small business application that relies on <span class="hl">AI services</span> to perform <b>one targeted task</b>.</p>
@@ -843,8 +1007,8 @@
     </div>
   </section>
 
-  <!-- ================= SLIDE 15: BEST PRACTICES ================= -->
-  <section class="slide" data-num="15">
+  <!-- ================= SLIDE 16: BEST PRACTICES ================= -->
+  <section class="slide" data-num="16">
     <div data-step="0">
       <h2 class="title a blur">Best Practices &amp; <span class="hl">Limits</span></h2>
       <p class="sub a" style="--d:.25s">Tips for effective vibe coding</p>
@@ -873,7 +1037,7 @@
   </section>
 
   <!-- ================= SLIDE 16 ================= -->
-  <section class="slide s14" data-num="16">
+  <section class="slide s14" data-num="17">
     <div data-step="0">
       <h2 class="title a blur">Conclusion: <span class="hl">Key Takeaways</span></h2>
       <p class="sub a" style="--d:.25s">Building AI-powered applications is no longer limited to software engineers. With the right tools, documentation and AI assistants, <strong style="color:#fff;font-weight:600">anyone can accelerate the journey from an idea to a working prototype</strong>.</p>
@@ -917,7 +1081,7 @@
   </section>
 
   <!-- ================= SLIDE 17 ================= -->
-  <section class="slide divider s15" data-num="17">
+  <section class="slide divider s15" data-num="18">
     <div class="dside l a left" data-step="0"><div class="img"></div></div>
     <div class="dside r a right" data-step="0"><div class="img"></div></div>
     <div data-step="0">
