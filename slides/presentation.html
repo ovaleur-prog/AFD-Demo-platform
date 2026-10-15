@@ -537,6 +537,111 @@
   .paper ul { margin: 0 0 8px; padding-left: 20px; }
   .paper .ok { list-style: none; padding-left: 0; }
   .paper .ok li::before { content: "✓ "; color: #1a9e45; font-weight: 700; }
+
+  /* ---------- Demo stack ---------- */
+  .stk { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 64px; margin-top: 70px; }
+  .stk-card { position: relative; padding: 40px 22px 34px; border-radius: 20px; text-align: center; border: 1px solid var(--line); background: linear-gradient(160deg, rgba(139,92,246,.14), rgba(19,19,22,.92)); }
+  .stk-card .lbox { width: 128px; height: 128px; margin: 0 auto 24px; display: grid; place-items: center; border-radius: 30px; border: 1px solid rgba(255,255,255,.1); background: #1a1a1f; font-size: 66px; color: var(--purple2); box-shadow: 0 0 50px rgba(139,92,246,.25); }
+  .stk-card .lbox img { width: 76px; height: 76px; object-fit: contain; }
+  .stk-card .lbox.duo { display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .stk-card .lbox.duo img { width: 52px; height: 52px; border-radius: 10px; }
+  .stk-card .eyebrow { display: block; }
+  .stk-card h3 { margin: 12px 0 8px; font-size: 32px; }
+  .stk-card p { margin: 0; font-size: 19px; line-height: 1.4; color: var(--grey); }
+  .stk-card:not(:last-child)::after { content: ""; position: absolute; right: -50px; top: 50%; width: 36px; height: 4px; border-radius: 4px; background: var(--purple2); opacity: 0; transition: opacity .4s ease calc(var(--d) + .5s); }
+  .stk-card:not(:last-child)::before { content: ""; position: absolute; right: -62px; top: calc(50% - 7px); border-left: 12px solid var(--purple2); border-top: 9px solid transparent; border-bottom: 9px solid transparent; opacity: 0; transition: opacity .4s ease calc(var(--d) + .5s); }
+  [data-step].in .stk-card::after, [data-step].in .stk-card::before { opacity: 1; }
+  .stk-opt { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 60px; font-size: 21px; color: var(--grey); }
+  .stk-opt span { display: flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; border: 1px dashed rgba(77,208,225,.55); background: rgba(77,208,225,.07); color: #fff; }
+  .stk-opt .ico { font-size: 26px; color: var(--cyan); }
+
+  /* ---------- Markdown documents ---------- */
+  .md-grid { display: grid; grid-template-columns: 640px 1fr; gap: 60px; margin-top: 50px; align-items: start; }
+  .md-card { padding: 34px 36px; border-radius: 22px; border: 1px solid rgba(139,92,246,.45); background: linear-gradient(150deg, rgba(139,92,246,.18), rgba(19,19,22,.92)); }
+  .md-badge { display: flex; align-items: center; gap: 18px; font: 800 84px "JetBrains Mono", monospace; line-height: 1; }
+  .md-badge .ico { font-size: 70px; color: var(--yellow); filter: drop-shadow(0 0 14px rgba(242,242,10,.5)); }
+  .md-badge span { background: linear-gradient(90deg, var(--purple2), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .md-card p { margin: 22px 0 0; font-size: 24px; line-height: 1.5; color: #d6d6de; }
+  .md-card p b { color: #fff; }
+  .md-code { margin-top: 24px; padding: 20px 24px; border-radius: 14px; background: #0d0d10; border: 1px solid var(--line); font: 18px/1.6 "JetBrains Mono", monospace; color: #cfcfd8; white-space: pre; }
+  .md-code .h { color: var(--purple2); font-weight: 700; }
+  .md-code .b { color: var(--cyan); }
+  .md-code .k { color: var(--yellow); }
+  .md-row { display: flex; align-items: center; gap: 22px; margin-bottom: 16px; padding: 22px 28px; border-radius: 16px; border: 1px solid var(--line); background: rgba(19,19,22,.85); }
+  .md-row > .ico { flex: none; font-size: 38px; color: var(--purple2); }
+  .md-row b { display: block; font: 700 26px "JetBrains Mono", monospace; }
+  .md-row span { font-size: 20px; color: #cfcfd8; }
+  .md-row em { margin-left: auto; flex: none; padding: 8px 14px; border-radius: 999px; font: 600 15px "JetBrains Mono", monospace; font-style: normal; color: var(--cyan); background: rgba(77,208,225,.1); border: 1px solid rgba(77,208,225,.4); }
+
+  /* ---------- Documents & connectors ---------- */
+  .dc-grid { display: grid; grid-template-columns: 470px 1fr 470px; align-items: center; gap: 20px; margin-top: 36px; }
+  .dc-col .eyebrow { display: block; margin-bottom: 16px; }
+  .dc-item { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; padding: 14px 22px; border-radius: 12px; border: 1px solid var(--line); background: rgba(19,19,22,.85); font-size: 21px; }
+  .dc-item .ico { flex: none; font-size: 28px; color: var(--purple2); }
+  .dc-item.mono { font-family: "JetBrains Mono", monospace; font-weight: 700; }
+  .dc-mid { display: flex; align-items: center; justify-content: center; }
+  .dc-mid .pipe { display: block; width: 120px; margin: 0 10px; }
+  .dc-rev { transform: scaleX(-1); }
+  .agent-core { position: relative; flex: none; width: 230px; height: 230px; border-radius: 50%; display: grid; place-items: center; text-align: center; font-size: 30px; font-weight: 800; line-height: 1.2;
+                background: radial-gradient(circle at 35% 30%, #b79cff, #7c4dff 55%, #3a1f8f); box-shadow: 0 0 80px rgba(124,77,255,.55); }
+  .agent-core small { display: block; font-size: 16px; font-weight: 500; color: #e7deff; }
+  .agent-core::before, .agent-core::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--purple2); animation: ring 2.6s ease-out infinite; }
+  .agent-core::after { animation-delay: 1.3s; }
+  .dc-key { margin-top: 30px; text-align: center; font-size: 27px; }
+  .mcp-card { width: 1500px; text-align: center; }
+  .mcp-card h3 { margin: 0; font-size: 60px; }
+  .mcp-card .full { margin-top: 8px; font: 600 22px "JetBrains Mono", monospace; color: var(--cyan); letter-spacing: 1px; }
+  .mcp-card .defn { margin: 26px auto 0; max-width: 1200px; font-size: 28px; line-height: 1.5; color: #d6d6de; font-weight: 300; }
+  .mcp-card .defn b { color: #fff; font-weight: 600; }
+  .mcp-row { display: flex; align-items: center; justify-content: center; margin-top: 50px; }
+  .mcp-node { width: 230px; padding: 28px 18px; border-radius: 20px; font-size: 26px; font-weight: 700; background: radial-gradient(circle at 35% 30%, #b79cff, #7c4dff 60%, #3a1f8f); box-shadow: 0 0 60px rgba(124,77,255,.5); }
+  .mcp-node .ico { display: block; margin: 0 auto 10px; font-size: 48px; }
+  .mcp-link { position: relative; width: 300px; height: 6px; margin: 0 6px; border-radius: 6px; background: repeating-linear-gradient(90deg, var(--cyan) 0 16px, transparent 16px 28px); background-size: 28px 100%; animation: flowDash .6s linear infinite; }
+  .mcp-link b { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; background: var(--bg); border: 2px solid var(--cyan); color: var(--cyan); font: 700 20px "JetBrains Mono", monospace; }
+  .mcp-tools { display: grid; grid-template-columns: repeat(2, 200px); gap: 12px; }
+  .mcp-tools span { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); background: #1a1a1f; font-size: 20px; }
+  .mcp-tools .ico { font-size: 26px; color: var(--purple2); }
+  .mcp-pts { display: flex; justify-content: center; gap: 18px; margin-top: 50px; }
+  .mcp-pts div { display: flex; align-items: center; gap: 12px; padding: 14px 22px; border-radius: 999px; border: 1px solid rgba(139,92,246,.45); background: rgba(139,92,246,.1); font-size: 20px; }
+  .mcp-pts .ico { font-size: 24px; color: #5ee08a; }
+
+  /* ---------- Demo roadmap ---------- */
+  .sflow { display: flex; flex-direction: column; align-items: center; }
+  .sflow .pipeline { margin-top: 110px; width: 1640px; }
+  .sflow .pipeline .track, .sflow .pipeline .fill { left: 125px; right: 125px; }
+  .sflow .stepn { width: 250px; }
+  .sflow .stepn span { font-size: 23px; }
+  .flow-note { margin-top: 90px; font-size: 26px; color: var(--grey); }
+  .flow-note b { color: #fff; }
+
+  /* ---------- Prerequisites ---------- */
+  .pq-row { display: grid; grid-template-columns: 1fr 140px 1fr; align-items: center; margin-top: 50px; }
+  .pq-card { padding: 30px 34px; border-radius: 20px; }
+  .pq-card.tech { border: 1px solid rgba(77,208,225,.5); background: linear-gradient(150deg, rgba(77,208,225,.14), rgba(19,19,22,.92)); }
+  .pq-card.biz { border: 1px solid rgba(240,139,101,.5); background: linear-gradient(150deg, rgba(240,139,101,.14), rgba(19,19,22,.92)); }
+  .pq-card h3 { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; font-size: 32px; }
+  .pq-card h3 .ico { font-size: 40px; }
+  .pq-card.tech h3 .ico { color: var(--cyan); }
+  .pq-card.biz h3 .ico { color: #f08b65; }
+  .pq-items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pq-items span { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.08); font-size: 21px; }
+  .pq-items .ico { flex: none; font-size: 26px; opacity: .85; }
+  .pq-plus { display: grid; place-items: center; width: 90px; height: 90px; margin: 0 auto; border-radius: 50%; font-size: 56px; font-weight: 300; background: linear-gradient(135deg, var(--cyan), #f08b65); box-shadow: 0 0 40px rgba(139,92,246,.5); opacity: 0; }
+  [data-step].in .pq-plus { animation: spinPop 1s var(--spring) .6s both; }
+  @keyframes spinPop { from { opacity: 0; transform: rotate(-180deg) scale(0); } to { opacity: 1; transform: none; } }
+  .pq-merge { display: block; width: 1680px; height: 120px; }
+  .pq-merge path { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.1s cubic-bezier(.6,0,.3,1) var(--d); }
+  .pq-merge.in path { stroke-dashoffset: 0; }
+  .pq-result { display: flex; align-items: center; justify-content: center; gap: 18px; width: 900px; margin: 0 auto; padding: 26px 34px; border-radius: 20px; font-size: 32px; font-weight: 700;
+               background: linear-gradient(var(--bg), var(--bg)) padding-box, linear-gradient(90deg, var(--cyan), var(--purple2), #f08b65) border-box; border: 3px solid transparent; box-shadow: 0 0 70px rgba(139,92,246,.4); }
+  .pq-result .ico { font-size: 44px; color: #5ee08a; }
+  .pq-result.in { animation: breathe 3s ease-in-out 2s infinite; }
+
+  /* ---------- Best practices (short) ---------- */
+  .tips-grid.short { grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
+  .tips-grid.short .tip { align-items: center; margin-bottom: 14px; padding: 20px 24px; font-size: 26px; }
+  .tips-grid.short .adv { margin-bottom: 14px; padding: 24px 26px; }
+  .tips-grid.short .adv b { margin: 0; font-size: 25px; }
 </style>
 </head>
 <body>
@@ -558,6 +663,8 @@
     <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
     <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
     <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0zM12 17v5"/></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></symbol>
     <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></symbol>
     <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
@@ -589,8 +696,8 @@
   <section class="slide s2" data-num="2">
     <h2 class="title a blur" data-step="0">Meet our team</h2>
     <div class="team" data-step="0">
-      <div class="member a scale" style="--d:.3s"><div class="ringwrap"><div class="avatar"><img src="assets/pierre.jpeg" alt="Pierre Pavlovic" /></div></div><b>Pierre Pavlovic</b></div>
-      <div class="member a scale" style="--d:.5s"><div class="ringwrap"><div class="avatar"><img src="assets/oscar.jpeg" alt="Oscar Valeur" /></div></div><b>Oscar Valeur</b></div>
+      <div class="member a scale" style="--d:.3s"><div class="ringwrap"><div class="avatar"><img src="assets/oscar.jpeg" alt="Oscar Valeur" /></div></div><b>Oscar Valeur</b></div>
+      <div class="member a scale" style="--d:.5s"><div class="ringwrap"><div class="avatar"><img src="assets/pierre.jpeg" alt="Pierre Pavlovic" /></div></div><b>Pierre Pavlovic</b></div>
     </div>
   </section>
 
@@ -667,269 +774,121 @@
   </section>
 
   <!-- ================= SLIDE 8 ================= -->
-  <section class="slide s8" data-num="8">
+  <section class="slide" data-num="8">
     <div data-step="0">
-      <h2 class="title a blur">What is Git &amp; GitHub/GitLab?</h2>
-      <div class="eyebrow a" style="--d:.3s;margin-top:50px">The problem</div>
-      <p class="problem a" style="--d:.4s">How do multiple people work on the same project <span class="hl">without breaking it?</span></p>
+      <h2 class="title a blur">Our Demo <span class="hl">Stack</span></h2>
+      <p class="sub a" style="--d:.25s">Four tools to go from an idea to a deployed application.</p>
     </div>
-    <div class="s8-grid" data-step="1">
-      <div class="gitimg gg a scale">
-        <svg viewBox="0 0 820 540">
-          <rect x="1" y="1" width="818" height="538" rx="20" fill="#131316" stroke="#2a2a31" stroke-width="2"/>
-          <circle cx="34" cy="34" r="7" fill="#ff5f57"/><circle cx="58" cy="34" r="7" fill="#febc2e"/><circle cx="82" cy="34" r="7" fill="#28c840"/>
-          <text x="112" y="41" fill="#8a8a94" font-size="19" font-family="JetBrains Mono, monospace">git log --graph</text>
-
-          <path class="gl" pathLength="1" style="--d:.3s" stroke="#c4c4cc" d="M70 290 L780 290"/>
-          <path class="gl" pathLength="1" style="--d:.8s" stroke="#a78bfa" d="M200 290 C260 290 260 170 320 170 L470 170 C530 170 530 290 580 290"/>
-          <path class="gl" pathLength="1" style="--d:1s" stroke="#4dd0e1" d="M200 290 C260 290 260 410 320 410 L620 410 C680 410 680 290 720 290"/>
-
-          <g fill="#0a0b0a" stroke-width="5">
-            <circle class="cm" style="--d:.4s" cx="80" cy="290" r="12" stroke="#c4c4cc"/>
-            <circle class="cm" style="--d:.6s" cx="200" cy="290" r="12" stroke="#c4c4cc"/>
-            <circle class="cm" style="--d:1.3s" cx="330" cy="170" r="12" stroke="#a78bfa"/>
-            <circle class="cm" style="--d:1.5s" cx="400" cy="170" r="12" stroke="#a78bfa"/>
-            <circle class="cm" style="--d:1.7s" cx="470" cy="170" r="12" stroke="#a78bfa"/>
-            <circle class="cm" style="--d:1.5s" cx="340" cy="410" r="12" stroke="#4dd0e1"/>
-            <circle class="cm" style="--d:1.7s" cx="440" cy="410" r="12" stroke="#4dd0e1"/>
-            <circle class="cm" style="--d:1.9s" cx="540" cy="410" r="12" stroke="#4dd0e1"/>
-            <circle class="cm" style="--d:2.1s" cx="620" cy="410" r="12" stroke="#4dd0e1"/>
-            <circle class="cm" style="--d:2s" cx="580" cy="290" r="15" stroke="#a78bfa" fill="#a78bfa"/>
-            <circle class="cm" style="--d:2.4s" cx="720" cy="290" r="15" stroke="#4dd0e1" fill="#4dd0e1"/>
-          </g>
-
-          <g font-family="JetBrains Mono, monospace" font-size="20" font-weight="700">
-            <text class="lb" style="--d:.6s" x="70" y="335" fill="#c4c4cc">main</text>
-            <text class="lb" style="--d:1.4s" x="300" y="130" fill="#a78bfa">Pierre · feature/login</text>
-            <text class="lb" style="--d:1.6s" x="300" y="464" fill="#4dd0e1">Oscar · feature/design</text>
-            <text class="lb" style="--d:2.1s" x="580" y="252" fill="#a78bfa" font-size="16" text-anchor="middle">merge</text>
-          </g>
-          <g class="lb" style="--d:2.7s">
-            <g class="tag"><rect x="660" y="208" width="120" height="40" rx="20" fill="#2b2240" stroke="#a78bfa" stroke-width="2"/>
-            <text x="720" y="235" fill="#fff" font-size="18" font-weight="700" text-anchor="middle">v1.0 live</text></g>
-          </g>
-          <text class="lb" style="--d:2.9s" x="410" y="512" fill="#9a9aa4" font-size="20" text-anchor="middle">Everyone works in parallel. Git merges the work safely.</text>
-        </svg>
-      </div>
-      <div>
-        <div class="eyebrow a" style="--d:.3s">The solution</div>
-        <div class="big a" style="--d:.4s">Git = version control</div>
-        <div class="quote2 a" style="--d:.55s">“Google Docs history for software projects.”</div>
-        <div class="big purple a" style="--d:.8s">GitHub / GitLab</div>
-        <ul class="arrow-list">
-          <li class="a" style="--d:.9s">Store source code</li>
-          <li class="a" style="--d:1s">Collaborate</li>
-          <li class="a" style="--d:1.1s">Review changes</li>
-          <li class="a" style="--d:1.2s">Automate deployments</li>
-          <li class="a" style="--d:1.3s">Manage CI/CD</li>
-        </ul>
-      </div>
+    <div class="stk" data-step="0">
+      <div class="stk-card a scale" style="--d:.4s"><div class="lbox"><img src="assets/logo-vscode.png" alt="" /></div><span class="eyebrow">IDE</span><h3>VS Code</h3><p>Where we write, run and edit the app</p></div>
+      <div class="stk-card a scale" style="--d:.6s"><div class="lbox"><svg class="ico"><use href="#i-spark"/></svg></div><span class="eyebrow">AI assistant · License</span><h3>GitHub Copilot</h3><p>The agent that generates and edits code</p></div>
+      <div class="stk-card a scale" style="--d:.8s"><div class="lbox duo"><img src="assets/github.png" alt="" /><img src="assets/gitlab.png" alt="" /></div><span class="eyebrow">Versioning</span><h3>GitHub / GitLab</h3><p>History, collaboration and backups</p></div>
+      <div class="stk-card a scale" style="--d:1s"><div class="lbox"><svg viewBox="0 0 24 24" width="64" height="64"><path d="M12 3l10 18H2z" fill="#fff"/></svg></div><span class="eyebrow">Deployment</span><h3>Vercel</h3><p>Publishes the app online in one click</p></div>
+    </div>
+    <div class="stk-opt" data-step="1">
+      <b class="a">+ Optional connectors</b>
+      <span class="a" style="--d:.1s"><svg class="ico"><use href="#i-figma"/></svg>Figma</span>
+      <span class="a" style="--d:.2s"><svg class="ico"><use href="#i-cloud"/></svg>Azure</span>
+      <span class="a" style="--d:.3s"><svg class="ico"><use href="#i-db"/></svg>Database</span>
     </div>
   </section>
 
   <!-- ================= SLIDE 9 ================= -->
-  <section class="slide s9" data-num="9">
-    <h2 class="title a blur" data-step="0">The 3 commands everyone should know</h2>
-    <div class="sync" data-step="0">
-      <div class="dev a left" style="--d:.3s">
-        <div class="term">
-          <div class="tb2"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>~/my-ai-app (main)</span></div>
-          <div class="tbody mono">
-            <div class="tl" style="--d:.8s"><em>$</em> git add .</div>
-            <div class="tl" style="--d:1.3s"><em>$</em> git commit -m "Add login page"</div>
-            <div class="tl ok" style="--d:1.8s">✓ 1 commit saved locally</div>
-            <div class="tl" style="--d:2.2s"><em>$</em> <span class="cur"></span></div>
-          </div>
-        </div><b>Your computer</b><small class="mono">Local snapshot: git commit</small></div>
-      <div class="lanes">
-        <div class="lane pull"><span class="mono lbl">git pull</span><div class="arw"><i class="pkt"></i></div></div>
-        <div class="lane push"><span class="mono lbl">git push</span><div class="arw"><i class="pkt"></i></div></div>
-      </div>
-      <div class="dev right a right" style="--d:.3s"><img src="assets/cloud.png" alt="" /><b><img class="brand" src="assets/github.png" alt="" />GitHub / GitLab<img class="brand" src="assets/gitlab.png" alt="" /></b></div>
+  <section class="slide" data-num="9">
+    <div data-step="0">
+      <h2 class="title a blur">The Reference <span class="hl">Documents</span></h2>
+      <p class="sub a" style="--d:.25s">Simple text files that give the AI the context it needs.</p>
     </div>
-    <div class="cmds" data-step="1">
-      <div class="cmd a" style="--d:.1s"><h4 class="mono" style="color:var(--cyan)">git pull</h4><p>Download the latest version.</p><q>Get the team’s changes.</q></div>
-      <div class="cmd a" style="--d:.3s"><h4 class="mono">git commit</h4><p>Save a checkpoint locally.</p><q>Create a snapshot in your local folder.</q></div>
-      <div class="cmd a" style="--d:.5s"><h4 class="mono" style="color:var(--purple2)">git push</h4><p>Publish your work.</p><q>Share my changes with the team.</q></div>
+    <div class="md-grid">
+      <div class="md-card a left" data-step="0" style="--d:.4s">
+        <div class="md-badge"><svg class="ico"><use href="#i-bolt"/></svg><span>.md</span></div>
+        <p>A <b>Markdown file</b> is a plain text file with light formatting: <b>#</b> titles, <b>-</b> lists, <b>**bold**</b>. Easy for humans to write, <b>easy for AI to read</b>.</p>
+        <div class="md-code"><span class="h"># PRD</span>
+<span class="h">## Target users</span>
+- Grid operators
+- Energy analysts
+<span class="k">**Goal:**</span> <span class="b">spot underperforming regions</span></div>
+      </div>
+      <div data-step="1">
+        <div class="md-row a right" style="--d:.1s"><svg class="ico"><use href="#i-doc"/></svg><div><b>PRD.md</b><span>What to build, for whom, and why</span></div></div>
+        <div class="md-row a right" style="--d:.25s"><svg class="ico"><use href="#i-box"/></svg><div><b>Architecture.md</b><span>How the system is structured</span></div></div>
+        <div class="md-row a right" style="--d:.4s"><svg class="ico"><use href="#i-figma"/></svg><div><b>Design-System.md</b><span>Colors, typography, components</span></div><em>e.g. Elio Design System</em></div>
+        <div class="md-row a right" style="--d:.55s"><svg class="ico"><use href="#i-check"/></svg><div><b>Testing.md</b><span>How to verify it works</span></div></div>
+      </div>
     </div>
   </section>
 
   <!-- ================= SLIDE 10 ================= -->
   <section class="slide" data-num="10">
     <div data-step="0">
-      <h2 class="title a blur">What Does an AI Agent Need to Build a <span class="hl">Reliable</span> Application?</h2>
-      <p class="sub a" style="--d:.25s">AI agents perform best with clear context. Five documents provide the <span class="hl">minimum viable context</span> to build a consistent application.</p>
+      <h2 class="title a blur">Documents &amp; <span class="hl">Connectors</span></h2>
+      <p class="sub a" style="--d:.25s">Documents describe the project. Connectors bring live data and tools.</p>
     </div>
-
-    <div class="s10-grid">
-      <div class="context-cards" data-step="0">
-        <article class="context-card a left" style="--d:.4s"><div class="context-top"><div class="doc">PRD.md</div><span class="priority core">CORE</span></div><p class="purpose">Defines <b>what to build, for whom, and why</b></p></article>
-        <article class="context-card a left" style="--d:.55s"><div class="context-top"><div class="doc">Architecture.md</div><span class="priority core">CORE</span></div><p class="purpose">Defines <b>how the system is structured</b> and how components interact</p></article>
-        <article class="context-card a left" style="--d:.7s"><div class="context-top"><div class="doc">Design-System.md</div><span class="priority core">CORE</span></div><p class="purpose">Ensures <b>visual consistency, branding</b> and user experience</p></article>
-        <article class="context-card a left" style="--d:.85s"><div class="context-top"><div class="doc">App-Flow.md</div><span class="priority high">HIGH</span></div><p class="purpose">Defines the <b>user journeys</b> and navigation paths</p></article>
-        <article class="context-card a left" style="--d:1.0s"><div class="context-top"><div class="doc">Testing.md</div><span class="priority high">HIGH</span></div><p class="purpose">Defines <b>how to verify</b> the application works as expected</p></article>
+    <div class="dc-grid">
+      <div class="dc-col" data-step="0">
+        <span class="eyebrow a" style="--d:.4s">Documents (.md)</span>
+        <div class="dc-item mono a left" style="--d:.5s"><svg class="ico"><use href="#i-doc"/></svg>PRD.md</div>
+        <div class="dc-item mono a left" style="--d:.6s"><svg class="ico"><use href="#i-box"/></svg>Architecture.md</div>
+        <div class="dc-item mono a left" style="--d:.7s"><svg class="ico"><use href="#i-figma"/></svg>Design-System.md</div>
+        <div class="dc-item mono a left" style="--d:.8s"><svg class="ico"><use href="#i-check"/></svg>Testing.md</div>
       </div>
-
-      <div class="qcol" data-step="1">
-        <div class="eyebrow a">The 5 questions every agent needs</div>
-        <div class="q a right" style="--d:.1s"><span>What are we building?</span><i class="arr"></i><b>PRD</b></div>
-        <div class="q a right" style="--d:.25s"><span>How is it structured?</span><i class="arr"></i><b>Architecture</b></div>
-        <div class="q a right" style="--d:.4s"><span>What should it look like?</span><i class="arr"></i><b>Design System</b></div>
-        <div class="q a right" style="--d:.55s"><span>How do users navigate?</span><i class="arr"></i><b>App Flow</b></div>
-        <div class="q a right" style="--d:.7s"><span>How do we validate it?</span><i class="arr"></i><b>Testing</b></div>
+      <div class="dc-mid">
+        <div data-step="0"><i class="pipe" style="--d:.9s"></i></div>
+        <div class="agent-core a scale" data-step="0" style="--d:.3s"><div>AI Agent<small>+ your context</small></div></div>
+        <div class="dc-rev" data-step="1"><i class="pipe" style="--d:.6s"></i></div>
+      </div>
+      <div class="dc-col" data-step="1">
+        <span class="eyebrow a">Connectors</span>
+        <div class="dc-item a right" style="--d:.1s"><svg class="ico" style="color:#4f8cf7"><use href="#i-cloud"/></svg>Azure</div>
+        <div class="dc-item a right" style="--d:.18s"><svg class="ico" style="color:#ff7262"><use href="#i-figma"/></svg>Figma</div>
+        <div class="dc-item a right" style="--d:.26s"><svg class="ico" style="color:#fff"><use href="#i-git"/></svg>GitHub</div>
+        <div class="dc-item a right" style="--d:.34s"><svg class="ico" style="color:#f2c94c"><use href="#i-db"/></svg>Database</div>
+        <div class="dc-item a right" style="--d:.42s"><svg class="ico" style="color:#4dd0e1"><use href="#i-api"/></svg>APIs</div>
+        <div class="dc-item a right" style="--d:.5s"><svg class="ico"><use href="#i-doc"/></svg>Documentation</div>
       </div>
     </div>
+    <div class="keymsg dc-key a" data-step="2">The agent doesn't work from prompts alone. It relies on <span class="hl">documents</span> and <span class="hl">context sources</span> (connectors).</div>
 
-    <div class="overlay" data-step="2">
-      <div class="ov-card">
-        <div class="ov-l a" style="--d:.2s">Without context, AI generates <span class="mono">code</span>.</div>
-        <div class="ov-l big a" style="--d:.6s">With context, AI generates the <span class="hl">right application</span>.</div>
-        <div class="gigo a scale" style="--d:1.1s">Garbage in, garbage out.</div>
-        <p class="a" style="--d:1.6s">A well-documented project gives the AI enough context to behave like a junior developer familiar with your product, architecture, design standards and user journeys. <strong>Without these documents, the AI is simply guessing.</strong></p>
+    <div class="overlay conv-overlay" data-step="3">
+      <div class="mcp-card">
+        <h3 class="a blur">What is an <span class="hl">MCP</span>?</h3>
+        <div class="full a" style="--d:.15s">Model Context Protocol</div>
+        <p class="defn a" style="--d:.3s">A <b>standard “plug”</b> that lets an AI agent connect to <b>external tools, data and services</b> — like a USB-C port that works with any device.</p>
+        <div class="mcp-row">
+          <div class="mcp-node a left" style="--d:.6s"><svg class="ico"><use href="#i-spark"/></svg>AI Agent</div>
+          <div class="mcp-link a scale" style="--d:.9s"><b><svg class="ico"><use href="#i-plug"/></svg>MCP</b></div>
+          <div class="mcp-tools a right" style="--d:1.1s"><span><svg class="ico"><use href="#i-figma"/></svg>Figma</span><span><svg class="ico"><use href="#i-cloud"/></svg>Azure</span><span><svg class="ico"><use href="#i-git"/></svg>GitHub</span><span><svg class="ico"><use href="#i-db"/></svg>Database</span></div>
+        </div>
+        <div class="mcp-pts">
+          <div class="a" style="--d:1.4s"><svg class="ico"><use href="#i-check"/></svg>One standard interface</div>
+          <div class="a" style="--d:1.55s"><svg class="ico"><use href="#i-check"/></svg>Read data &amp; trigger actions</div>
+          <div class="a" style="--d:1.7s"><svg class="ico"><use href="#i-check"/></svg>Access you configure and control</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= SLIDE 11: PRD EXAMPLE ================= -->
-
   <!-- ================= SLIDE 11 ================= -->
-  <section class="slide" data-num="11">
+  <section class="slide s13 sflow" data-num="11">
     <div data-step="0">
-      <h2 class="title a blur">Connectors: Giving AI <span class="hl">Access to Data</span></h2>
-      <p class="sub a" style="--d:.25s">Without data, an AI agent is <strong style="color:#fff;font-weight:600">just a chatbot</strong>.</p>
+      <div class="num a scale">02.</div>
+      <h2 class="a blur" style="--d:.2s">Live demo: <span class="hl">Solar Grid Monitoring Dashboard</span></h2>
+      <p class="sub a" style="--d:.25s">Six steps from a blank folder to a deployed Solar Grid Monitoring Dashboard.</p>
     </div>
-
-    <div class="s11-grid">
-      <div class="hub" data-step="0">
-        <svg viewBox="0 -40 800 780">
-          <path class="ln" pathLength="1" style="--d:.5s" d="M400 80 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.6s" d="M634 215 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.7s" d="M634 485 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.8s" d="M400 620 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:.9s" d="M166 485 L400 350"/>
-          <path class="ln" pathLength="1" style="--d:1.0s" d="M166 215 L400 350"/>
-
-          <g class="pk" fill="#4dd0e1">
-            <circle r="6"><animateMotion dur="1.8s" repeatCount="indefinite" path="M400 80 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin=".3s" repeatCount="indefinite" path="M634 215 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin=".6s" repeatCount="indefinite" path="M634 485 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite" path="M400 620 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin="1.2s" repeatCount="indefinite" path="M166 485 L400 350"/></circle>
-            <circle r="6"><animateMotion dur="1.8s" begin="1.5s" repeatCount="indefinite" path="M166 215 L400 350"/></circle>
-          </g>
-
-          <g transform="translate(400 350)">
-            <g class="core">
-              <circle class="ring" r="100"/>
-              <circle class="ring r2" r="100"/>
-              <circle r="100" fill="url(#coreGrad)"/>
-              <text y="-4" text-anchor="middle" fill="#fff" font-size="30" font-weight="700">AI Agent</text>
-              <text y="30" text-anchor="middle" fill="#e7deff" font-size="17">+ your context</text>
-            </g>
-          </g>
-
-          <g transform="translate(400 80)"><g class="node" style="--d:.5s"><circle class="bgc" r="60"/><use href="#i-figma" x="-24" y="-24" width="48" height="48" class="ico" style="color:#ff7262"/><text y="-80">Figma</text></g></g>
-          <g transform="translate(634 215)"><g class="node" style="--d:.6s"><circle class="bgc" r="60"/><use href="#i-share" x="-24" y="-24" width="48" height="48" class="ico" style="color:#38b2ac"/><text y="92">SharePoint</text></g></g>
-          <g transform="translate(634 485)"><g class="node" style="--d:.7s"><circle class="bgc" r="60"/><use href="#i-git" x="-24" y="-24" width="48" height="48" class="ico" style="color:#fff"/><text y="92">GitHub</text></g></g>
-          <g transform="translate(400 620)"><g class="node" style="--d:.8s"><circle class="bgc" r="60"/><use href="#i-db" x="-24" y="-24" width="48" height="48" class="ico" style="color:#f2c94c"/><text y="92">Databases</text></g></g>
-          <g transform="translate(166 485)"><g class="node" style="--d:.9s"><circle class="bgc" r="60"/><use href="#i-api" x="-24" y="-24" width="48" height="48" class="ico" style="color:#4dd0e1"/><text y="92">APIs</text></g></g>
-          <g transform="translate(166 215)"><g class="node" style="--d:1.0s"><circle class="bgc" r="60"/><use href="#i-doc" x="-24" y="-24" width="48" height="48" class="ico" style="color:#a78bfa"/><text y="92">Documents</text></g></g>
-        </svg>
-      </div>
-
-      <div class="ex">
-        <div data-step="1">
-          <div class="eyebrow a">Example</div>
-          <div class="flow">
-            <div class="pill src a left" style="--d:.1s"><svg class="ico" style="color:#ff7262"><use href="#i-figma"/></svg>Figma Connector</div>
-            <i class="pipe" style="--d:.1s"></i>
-            <div class="pill dst a right" style="--d:.5s"><svg class="ico"><use href="#i-spark"/></svg>Design System</div>
-          </div>
-          <div class="flow">
-            <div class="pill src a left" style="--d:.4s"><svg class="ico" style="color:#38b2ac"><use href="#i-share"/></svg>SharePoint Connector</div>
-            <i class="pipe" style="--d:.4s"></i>
-            <div class="pill dst a right" style="--d:.8s"><svg class="ico"><use href="#i-doc"/></svg>Project Documents</div>
-          </div>
-          <div class="flow">
-            <div class="pill src a left" style="--d:.7s"><svg class="ico"><use href="#i-git"/></svg>GitHub Connector</div>
-            <i class="pipe" style="--d:.7s"></i>
-            <div class="pill dst a right" style="--d:1.1s"><svg class="ico"><use href="#i-code"/></svg>Source Code</div>
-          </div>
-        </div>
-        <div class="keymsg a" data-step="2">
-          <span class="eyebrow">Key message</span>
-          The quality of the agent depends more on its <span class="hl">context</span> than on the model itself.
-        </div>
-      </div>
+    <div class="pipeline" data-step="0">
+      <div class="track"></div><div class="fill"></div>
+      <div class="stepn a scale" style="--d:0.4s"><div class="dot" style="--d:0.50s"><svg class="ico"><use href="#i-doc"/></svg></div><small>STEP 1</small><span>Create<br/>the PRD</span></div>
+      <div class="stepn a scale" style="--d:0.75s"><div class="dot" style="--d:0.85s"><svg class="ico"><use href="#i-figma"/></svg></div><small>STEP 2</small><span>Create the<br/>Design System</span></div>
+      <div class="stepn a scale" style="--d:1.1s"><div class="dot" style="--d:1.20s"><svg class="ico"><use href="#i-spark"/></svg></div><small>STEP 3</small><span>GitHub Copilot<br/>in VS Code</span></div>
+      <div class="stepn a scale" style="--d:1.45s"><div class="dot" style="--d:1.55s"><svg class="ico"><use href="#i-code"/></svg></div><small>STEP 4</small><span>Generate the<br/>application</span></div>
+      <div class="stepn a scale" style="--d:1.8s"><div class="dot" style="--d:1.90s"><svg class="ico"><use href="#i-chat"/></svg></div><small>STEP 5</small><span>Iterate<br/>with the AI</span></div>
+      <div class="stepn a scale" style="--d:2.15s"><div class="dot" style="--d:2.25s"><svg class="ico"><use href="#i-rocket"/></svg></div><small>STEP 6</small><span>Deploy<br/>(Vercel)</span></div>
     </div>
+    <p class="flow-note a" data-step="0" style="--d:2.7s">The AI does the heavy lifting — <b>you steer, review and validate</b>.</p>
   </section>
 
   <!-- ================= SLIDE 12 ================= -->
   <section class="slide" data-num="12">
-    <div data-step="0">
-      <h2 class="title a blur">Extensions Inside <span class="hl">VS Code</span></h2>
-      <p class="sub a" style="--d:.25s">Extensions transform VS Code into an <span class="hl">AI development platform</span>.</p>
-    </div>
-
-    <div class="s12-wrap">
-      <div class="mock" data-step="0">
-        <div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>my-ai-app — Visual Studio Code</span></div>
-        <div class="mbody">
-          <div class="act"><b></b><b></b><b></b><b class="on"></b><b></b></div>
-          <div class="side">
-            <h4>EXTENSIONS: MARKETPLACE</h4>
-            <div class="search">ai development<span class="cur"></span></div>
-            <div class="ext a" style="--d:.5s"><div class="tile" style="background:linear-gradient(135deg,#6e40c9,#2f80ed)"><svg class="ico"><use href="#i-spark"/></svg></div><div class="meta"><b>GitHub Copilot</b><small>AI pair programmer</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
-            <div class="ext a" style="--d:.65s"><div class="tile" style="background:linear-gradient(135deg,#8b5cf6,#c084fc)"><svg class="ico"><use href="#i-chat"/></svg></div><div class="meta"><b>Copilot Chat</b><small>Agent mode &amp; chat</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
-            <div class="ext a" style="--d:.8s"><div class="tile" style="background:#24292e"><svg class="ico"><use href="#i-git"/></svg></div><div class="meta"><b>GitHub Pull Requests</b><small>Review &amp; collaborate</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
-            <div class="ext a" style="--d:.95s"><div class="tile" style="background:#1d63ed"><svg class="ico"><use href="#i-box"/></svg></div><div class="meta"><b>Docker</b><small>Containers &amp; deployment</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
-            <div class="ext a" style="--d:1.1s"><div class="tile" style="background:#b7791f"><svg class="ico"><use href="#i-db"/></svg></div><div class="meta"><b>Database Client</b><small>Query your data</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
-            <div class="ext a" style="--d:1.25s"><div class="tile" style="background:#0f9d8a"><svg class="ico"><use href="#i-api"/></svg></div><div class="meta"><b>API Testing</b><small>Call &amp; test endpoints</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
-          </div>
-          <div class="editor">
-            <div class="tabs"><div class="on">App.tsx</div><div>PRD.md</div><div>Design-System.md</div></div>
-            <div class="code" id="code"></div>
-            <div class="ghost">// Copilot: build login page from Design-System.md<kbd>Tab</kbd> <span class="cur"></span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="eq" data-step="1">
-        <div class="eyebrow a">Key message</div>
-        <div class="chip a right" style="--d:.5s"><svg class="ico"><use href="#i-code"/></svg>VS Code</div>
-        <div class="op a scale" style="--d:.7s">+</div>
-        <div class="chip a right" style="--d:.85s"><svg class="ico"><use href="#i-spark"/></svg>Extensions</div>
-        <div class="op a scale" style="--d:1.05s">+</div>
-        <div class="chip a right" style="--d:1.2s"><svg class="ico"><use href="#i-api"/></svg>Connectors</div>
-        <div class="op a scale" style="--d:1.4s">+</div>
-        <div class="chip a right" style="--d:1.55s"><svg class="ico"><use href="#i-doc"/></svg>Documentation</div>
-        <div class="op a scale" style="--d:1.8s">=</div>
-        <div class="result a scale" style="--d:2s">AI Development<br/>Environment</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SLIDE 13 ================= -->
-  <section class="slide s13" data-num="13">
-    <div data-step="0">
-      <div class="num a scale">02.</div>
-      <h2 class="a blur" style="--d:.2s">Live demo: <span class="hl">Solar Grid Monitoring Dashboard</span></h2>
-    </div>
-    <p class="quote words" data-step="0" style="--d:.8s">“Now that we understand the building blocks of an AI application, let's build a <strong>Solar Grid Monitoring Dashboard</strong> from scratch. We'll use its PRD, Architecture, App Flow and Testing documents, connect a design system, use GitHub Copilot inside VS Code, generate code, and publish a <strong>working prototype</strong>.”</p>
-
-    <div class="pipeline" data-step="1">
-      <div class="track"></div><div class="fill"></div>
-      <div class="stepn a scale" style="--d:.1s"><div class="dot" style="--d:.2s"><svg class="ico"><use href="#i-doc"/></svg></div><small>STEP 1</small><span>Write a<br/>simple PRD</span></div>
-      <div class="stepn a scale" style="--d:.6s"><div class="dot" style="--d:.7s"><svg class="ico"><use href="#i-figma"/></svg></div><small>STEP 2</small><span>Connect a<br/>design system</span></div>
-      <div class="stepn a scale" style="--d:1.1s"><div class="dot" style="--d:1.2s"><svg class="ico"><use href="#i-spark"/></svg></div><small>STEP 3</small><span>GitHub Copilot<br/>in VS Code</span></div>
-      <div class="stepn a scale" style="--d:1.6s"><div class="dot" style="--d:1.7s"><svg class="ico"><use href="#i-code"/></svg></div><small>STEP 4</small><span>Generate<br/>code</span></div>
-      <div class="stepn a scale" style="--d:2.1s"><div class="dot" style="--d:2.2s"><svg class="ico"><use href="#i-rocket"/></svg></div><small>STEP 5</small><span>Publish a<br/>prototype</span></div>
-    </div>
-    <div class="cta a scale" data-step="1" style="--d:2.7s">Let's build it <span>&rarr;</span></div>
-  </section>
-
-  <!-- ================= SLIDE 14: DEMO DOCUMENTS ================= -->
-  <section class="slide" data-num="14">
     <div data-step="0">
       <h2 class="title a blur">Our Demo <span class="hl">Context Pack</span></h2>
       <p class="sub a" style="--d:.25s">The documents we will give the AI to build a <strong style="color:#fff;font-weight:600">Solar Grid Monitoring Dashboard</strong>.</p>
@@ -1032,59 +991,48 @@
     </div>
   </section>
 
-  <!-- ================= SLIDE 15: UNDERSTANDING THE JOURNEY ================= -->
-  <section class="slide" data-num="15">
+  <!-- ================= SLIDE 13 ================= -->
+  <section class="slide" data-num="13">
     <div data-step="0">
-      <h2 class="title a blur">Understanding the <span class="hl">Journey</span></h2>
-      <p class="def a scale" style="--d:.3s">An <b>Agent App</b> is a small business application that relies on <span class="hl">AI services</span> to perform <b>one targeted task</b>.</p>
+      <h2 class="title a blur">Prerequisites: <span class="hl">Tech + Business</span></h2>
+      <p class="sub a" style="--d:.25s">You need both to build an application that truly serves its users.</p>
     </div>
-
-    <div class="jr-grid">
-      <div data-step="1">
-        <div class="jr-head a left"><span class="n">01</span><h3>Who is responsible for what</h3></div>
-        <p class="jr-lead a left" style="--d:.15s">Vibe coding <b>accelerates design and delivery</b>, but it does not replace:</p>
-        <div class="guard a left" style="--d:.35s"><svg class="ico"><use href="#i-user"/></svg>Business validation<small>Business team</small></div>
-        <div class="guard a left" style="--d:.5s"><svg class="ico"><use href="#i-check"/></svg>Development team reviews &amp; checks<small>Dev team</small></div>
-        <div class="guard a left" style="--d:.65s"><svg class="ico"><use href="#i-target"/></svg>The decision to integrate the app<small>Decision makers</small></div>
-      </div>
-
-      <div data-step="2">
-        <div class="jr-head a right"><span class="n">02</span><h3>Technical prerequisites</h3></div>
-        <p class="jr-lead a right" style="--d:.15s">To build an Agent App on your computer, you will need:</p>
-        <div class="req a right" style="--d:.3s"><svg class="ico"><use href="#i-code"/></svg><div><b>Visual Studio Code</b> and the <b>GitHub Copilot Chat</b> extension</div></div>
-        <div class="req a right" style="--d:.45s"><svg class="ico"><use href="#i-spark"/></svg><div>An <b>active GitHub Copilot license</b></div></div>
-        <div class="req a right" style="--d:.6s"><svg class="ico"><use href="#i-box"/></svg><div>Local tooling
-          <div class="chips"><span style="--d:.9s">Git</span><span style="--d:1s">Python ≥ 3.14</span><span style="--d:1.1s">Node.js ≥ 22 + npm</span><span style="--d:1.2s">Azure CLI</span><span style="--d:1.3s">uv</span></div></div></div>
-        <div class="req a right" style="--d:.75s"><svg class="ico"><use href="#i-git"/></svg><div>Access to the <b>dedicated GitLab repository</b> for your project</div></div>
-      </div>
+    <div class="pq-row" data-step="0">
+      <div class="pq-card tech a left" style="--d:.4s"><h3><svg class="ico"><use href="#i-code"/></svg>Technical prerequisites</h3>
+        <div class="pq-items"><span><svg class="ico"><use href="#i-code"/></svg>IDE (VS Code)</span><span><svg class="ico"><use href="#i-git"/></svg>Git</span><span><svg class="ico"><use href="#i-spark"/></svg>GitHub Copilot</span><span><svg class="ico"><use href="#i-lock"/></svg>Access to tools</span></div></div>
+      <div class="pq-plus">+</div>
+      <div class="pq-card biz a right" style="--d:.4s"><h3><svg class="ico"><use href="#i-user"/></svg>Business knowledge</h3>
+        <div class="pq-items"><span><svg class="ico"><use href="#i-user"/></svg>User need</span><span><svg class="ico"><use href="#i-doc"/></svg>Use case</span><span><svg class="ico"><use href="#i-target"/></svg>Business objectives</span><span><svg class="ico"><use href="#i-route"/></svg>Constraints</span></div></div>
     </div>
+    <svg class="pq-merge" data-step="1" viewBox="0 0 1680 120">
+      <path pathLength="1" stroke="#4dd0e1" style="--d:.1s" d="M385 4 C385 70 840 40 840 116"/>
+      <path pathLength="1" stroke="#f08b65" style="--d:.1s" d="M1295 4 C1295 70 840 40 840 116"/>
+    </svg>
+    <div class="pq-result a scale" data-step="1" style="--d:1s"><svg class="ico"><use href="#i-check"/></svg>An application that meets the user's need</div>
   </section>
 
-  <!-- ================= SLIDE 16: BEST PRACTICES ================= -->
-  <section class="slide" data-num="16">
+  <!-- ================= SLIDE 14 ================= -->
+  <section class="slide" data-num="15">
     <div data-step="0">
       <h2 class="title a blur">Best Practices &amp; <span class="hl">Limits</span></h2>
       <p class="sub a" style="--d:.25s">Tips for effective vibe coding</p>
     </div>
 
-    <div class="tips-grid">
+    <div class="tips-grid short">
       <div data-step="0">
         <span class="eyebrow a" style="--d:.35s">The essentials</span>
-        <div class="tip a left" style="--d:.45s"><i>1</i><div><b>Describe the need with concrete examples:</b> who will use the app, in which situation, and what result is expected.</div></div>
-        <div class="tip a left" style="--d:.55s"><i>2</i><div><b>One feature or change at a time;</b> say what must change and what must stay the same.</div></div>
-        <div class="tip a left" style="--d:.65s"><i>3</i><div><b>Read and confirm</b> the business summary and scope before asking for the build.</div></div>
-        <div class="tip a left" style="--d:.75s"><i>4</i><div><b>Give feedback on the visual prototype</b> before asking for the real features.</div></div>
-        <div class="tip a left" style="--d:.85s"><i>5</i><div><b>Test with representative examples,</b> then explain precisely what looks wrong.</div></div>
-        <div class="tip a left" style="--d:.95s"><i>6</i><div><b>Ask for a clear report</b> of the checks performed and the remaining open points.</div></div>
-        <div class="tip warn a left" style="--d:1.1s"><i><svg class="ico"><use href="#i-lock"/></svg></i><div><b>Never share a password, token or key</b> in a conversation or in the code.</div></div>
+        <div class="tip a left" style="--d:.45s"><i>1</i><div><b>Describe the need</b> with concrete examples</div></div>
+        <div class="tip a left" style="--d:.55s"><i>2</i><div><b>One change at a time</b></div></div>
+        <div class="tip a left" style="--d:.65s"><i>3</i><div><b>Validate the prototype</b> before the real build</div></div>
+        <div class="tip a left" style="--d:.75s"><i>4</i><div><b>Test, then explain</b> precisely what's wrong</div></div>
+        <div class="tip warn a left" style="--d:.9s"><i><svg class="ico"><use href="#i-lock"/></svg></i><div><b>Never share secrets</b> (passwords, tokens, keys)</div></div>
       </div>
-
       <div data-step="1">
         <span class="eyebrow a">Advanced tips</span>
-        <div class="adv a right" style="--d:.15s"><b><svg class="ico"><use href="#i-spark"/></svg>Match the model to the task</b>Adapt the model and reasoning effort to the task's complexity. If Auto mode isn't good enough, explicitly pick a more capable model, and follow your team's recommendations when they exist.</div>
-        <div class="adv a right" style="--d:.3s"><b><svg class="ico"><use href="#i-target"/></svg>Be precise</b>Give context, users, constraints, examples and the expected result. You can ask the AI to improve your initial prompt, then check it matches your need and contains no secrets.</div>
-        <div class="adv a right" style="--d:.45s"><b><svg class="ico"><use href="#i-route"/></svg>Stuck after several exchanges?</b>Ask for a full diagnosis, a resolution plan, then its implementation. Raise the model level and reasoning effort if needed.</div>
-        <div class="adv a right" style="--d:.6s"><b><svg class="ico"><use href="#i-image"/></svg>Attach a screenshot</b>Illustrate a problem when useful, and mask tokens, personal data and confidential information.</div>
+        <div class="adv a right" style="--d:.15s"><b><svg class="ico"><use href="#i-spark"/></svg>Right model for the task</b></div>
+        <div class="adv a right" style="--d:.3s"><b><svg class="ico"><use href="#i-target"/></svg>Be precise: context, constraints, examples</b></div>
+        <div class="adv a right" style="--d:.45s"><b><svg class="ico"><use href="#i-route"/></svg>Stuck? Diagnose → plan → fix</b></div>
+        <div class="adv a right" style="--d:.6s"><b><svg class="ico"><use href="#i-image"/></svg>Share screenshots (mask sensitive data)</b></div>
       </div>
     </div>
 
@@ -1114,8 +1062,8 @@
     </div>
   </section>
 
-  <!-- ================= SLIDE 17: MODEL SELECTION ================= -->
-  <section class="slide" data-num="17">
+  <!-- ================= SLIDE 15 ================= -->
+  <section class="slide" data-num="14">
     <div data-step="0">
       <h2 class="title a blur">Which Model for <span class="hl">Which Task?</span></h2>
       <p class="sub a" style="--d:.2s">Pick based on the work: speed, everyday coding, deeper reasoning, or code-heavy implementation.</p>
@@ -1140,8 +1088,8 @@
     </div>
   </section>
 
-  <!-- ================= SLIDE 18: CONCLUSION ================= -->
-  <section class="slide s14" data-num="18">
+  <!-- ================= SLIDE 16 ================= -->
+  <section class="slide s14" data-num="16">
     <div data-step="0">
       <h2 class="title a blur">Conclusion: <span class="hl">Key Takeaways</span></h2>
       <p class="sub a" style="--d:.25s">Building AI-powered applications is no longer limited to software engineers. With the right tools, documentation and AI assistants, <strong style="color:#fff;font-weight:600">anyone can accelerate the journey from an idea to a working prototype</strong>.</p>
@@ -1184,8 +1132,8 @@
     </div>
   </section>
 
-  <!-- ================= SLIDE 19: Q&A ================= -->
-  <section class="slide divider s15" data-num="19">
+  <!-- ================= SLIDE 17 ================= -->
+  <section class="slide divider s15" data-num="17">
     <div class="dside l a left" data-step="0"><div class="img"></div></div>
     <div class="dside r a right" data-step="0"><div class="img"></div></div>
     <div data-step="0">
@@ -1193,6 +1141,158 @@
       <div class="qa a blur" style="--d:.75s">Q&amp;A</div>
       <div class="thanks a" style="--d:1.1s">Thank you! Your questions are welcome.</div>
       <div class="names a" style="--d:1.4s">Pierre Pavlovic · Oscar Valeur</div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 17: ANNEXE ================= -->
+  <section class="slide divider" data-num="18">
+    <div data-step="0">
+      <div class="num a scale" style="--d:.4s">APPENDIX</div>
+      <h2 class="a blur" style="--d:.7s">Annexe</h2>
+      <p class="a" style="--d:1s;margin-top:24px;font-size:26px;color:var(--grey)">Compléments &amp; slides de référence</p>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 18: BACKUP ================= -->
+  <section class="slide divider" data-num="19">
+    <div class="dside l a left" data-step="0"><div class="img"></div></div>
+    <div class="dside r a right" data-step="0"><div class="img"></div></div>
+    <div data-step="0">
+      <div class="num a scale" style="--d:.5s">Backup</div>
+      <h2 class="a blur" style="--d:.75s">Git &amp; GitHub basics</h2>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 19: BACKUP ================= -->
+  <section class="slide s8" data-num="20">
+    <div data-step="0">
+      <h2 class="title a blur">What is Git &amp; GitHub/GitLab?</h2>
+      <div class="eyebrow a" style="--d:.3s;margin-top:50px">The problem</div>
+      <p class="problem a" style="--d:.4s">How do multiple people work on the same project <span class="hl">without breaking it?</span></p>
+    </div>
+    <div class="s8-grid" data-step="1">
+      <div class="gitimg gg a scale">
+        <svg viewBox="0 0 820 540">
+          <rect x="1" y="1" width="818" height="538" rx="20" fill="#131316" stroke="#2a2a31" stroke-width="2"/>
+          <circle cx="34" cy="34" r="7" fill="#ff5f57"/><circle cx="58" cy="34" r="7" fill="#febc2e"/><circle cx="82" cy="34" r="7" fill="#28c840"/>
+          <text x="112" y="41" fill="#8a8a94" font-size="19" font-family="JetBrains Mono, monospace">git log --graph</text>
+
+          <path class="gl" pathLength="1" style="--d:.3s" stroke="#c4c4cc" d="M70 290 L780 290"/>
+          <path class="gl" pathLength="1" style="--d:.8s" stroke="#a78bfa" d="M200 290 C260 290 260 170 320 170 L470 170 C530 170 530 290 580 290"/>
+          <path class="gl" pathLength="1" style="--d:1s" stroke="#4dd0e1" d="M200 290 C260 290 260 410 320 410 L620 410 C680 410 680 290 720 290"/>
+
+          <g fill="#0a0b0a" stroke-width="5">
+            <circle class="cm" style="--d:.4s" cx="80" cy="290" r="12" stroke="#c4c4cc"/>
+            <circle class="cm" style="--d:.6s" cx="200" cy="290" r="12" stroke="#c4c4cc"/>
+            <circle class="cm" style="--d:1.3s" cx="330" cy="170" r="12" stroke="#a78bfa"/>
+            <circle class="cm" style="--d:1.5s" cx="400" cy="170" r="12" stroke="#a78bfa"/>
+            <circle class="cm" style="--d:1.7s" cx="470" cy="170" r="12" stroke="#a78bfa"/>
+            <circle class="cm" style="--d:1.5s" cx="340" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:1.7s" cx="440" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:1.9s" cx="540" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:2.1s" cx="620" cy="410" r="12" stroke="#4dd0e1"/>
+            <circle class="cm" style="--d:2s" cx="580" cy="290" r="15" stroke="#a78bfa" fill="#a78bfa"/>
+            <circle class="cm" style="--d:2.4s" cx="720" cy="290" r="15" stroke="#4dd0e1" fill="#4dd0e1"/>
+          </g>
+
+          <g font-family="JetBrains Mono, monospace" font-size="20" font-weight="700">
+            <text class="lb" style="--d:.6s" x="70" y="335" fill="#c4c4cc">main</text>
+            <text class="lb" style="--d:1.4s" x="300" y="130" fill="#a78bfa">Pierre · feature/login</text>
+            <text class="lb" style="--d:1.6s" x="300" y="464" fill="#4dd0e1">Oscar · feature/design</text>
+            <text class="lb" style="--d:2.1s" x="580" y="252" fill="#a78bfa" font-size="16" text-anchor="middle">merge</text>
+          </g>
+          <g class="lb" style="--d:2.7s">
+            <g class="tag"><rect x="660" y="208" width="120" height="40" rx="20" fill="#2b2240" stroke="#a78bfa" stroke-width="2"/>
+            <text x="720" y="235" fill="#fff" font-size="18" font-weight="700" text-anchor="middle">v1.0 live</text></g>
+          </g>
+          <text class="lb" style="--d:2.9s" x="410" y="512" fill="#9a9aa4" font-size="20" text-anchor="middle">Everyone works in parallel. Git merges the work safely.</text>
+        </svg>
+      </div>
+      <div>
+        <div class="eyebrow a" style="--d:.3s">The solution</div>
+        <div class="big a" style="--d:.4s">Git = version control</div>
+        <div class="quote2 a" style="--d:.55s">“Google Docs history for software projects.”</div>
+        <div class="big purple a" style="--d:.8s">GitHub / GitLab</div>
+        <ul class="arrow-list">
+          <li class="a" style="--d:.9s">Store source code</li>
+          <li class="a" style="--d:1s">Collaborate</li>
+          <li class="a" style="--d:1.1s">Review changes</li>
+          <li class="a" style="--d:1.2s">Automate deployments</li>
+          <li class="a" style="--d:1.3s">Manage CI/CD</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 20: BACKUP ================= -->
+  <section class="slide s9" data-num="21">
+    <h2 class="title a blur" data-step="0">The 3 commands everyone should know</h2>
+    <div class="sync" data-step="0">
+      <div class="dev a left" style="--d:.3s">
+        <div class="term">
+          <div class="tb2"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>~/my-ai-app (main)</span></div>
+          <div class="tbody mono">
+            <div class="tl" style="--d:.8s"><em>$</em> git add .</div>
+            <div class="tl" style="--d:1.3s"><em>$</em> git commit -m "Add login page"</div>
+            <div class="tl ok" style="--d:1.8s">✓ 1 commit saved locally</div>
+            <div class="tl" style="--d:2.2s"><em>$</em> <span class="cur"></span></div>
+          </div>
+        </div><b>Your computer</b><small class="mono">Local snapshot: git commit</small></div>
+      <div class="lanes">
+        <div class="lane pull"><span class="mono lbl">git pull</span><div class="arw"><i class="pkt"></i></div></div>
+        <div class="lane push"><span class="mono lbl">git push</span><div class="arw"><i class="pkt"></i></div></div>
+      </div>
+      <div class="dev right a right" style="--d:.3s"><img src="assets/cloud.png" alt="" /><b><img class="brand" src="assets/github.png" alt="" />GitHub / GitLab<img class="brand" src="assets/gitlab.png" alt="" /></b></div>
+    </div>
+    <div class="cmds" data-step="1">
+      <div class="cmd a" style="--d:.1s"><h4 class="mono" style="color:var(--cyan)">git pull</h4><p>Download the latest version.</p><q>Get the team’s changes.</q></div>
+      <div class="cmd a" style="--d:.3s"><h4 class="mono">git commit</h4><p>Save a checkpoint locally.</p><q>Create a snapshot in your local folder.</q></div>
+      <div class="cmd a" style="--d:.5s"><h4 class="mono" style="color:var(--purple2)">git push</h4><p>Publish your work.</p><q>Share my changes with the team.</q></div>
+    </div>
+  </section>
+
+  <!-- ================= SLIDE 21: APPENDIX ================= -->
+  <section class="slide" data-num="22">
+    <div data-step="0">
+      <h2 class="title a blur">Appendix: <span class="hl">Extensions Inside VS Code</span></h2>
+      <p class="sub a" style="--d:.25s">Extensions transform VS Code into an <span class="hl">AI development platform</span>.</p>
+    </div>
+
+    <div class="s12-wrap">
+      <div class="mock" data-step="0">
+        <div class="tb"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>my-ai-app — Visual Studio Code</span></div>
+        <div class="mbody">
+          <div class="act"><b></b><b></b><b></b><b class="on"></b><b></b></div>
+          <div class="side">
+            <h4>EXTENSIONS: MARKETPLACE</h4>
+            <div class="search">ai development<span class="cur"></span></div>
+            <div class="ext a" style="--d:.5s"><div class="tile" style="background:linear-gradient(135deg,#6e40c9,#2f80ed)"><svg class="ico"><use href="#i-spark"/></svg></div><div class="meta"><b>GitHub Copilot</b><small>AI pair programmer</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
+            <div class="ext a" style="--d:.65s"><div class="tile" style="background:linear-gradient(135deg,#8b5cf6,#c084fc)"><svg class="ico"><use href="#i-chat"/></svg></div><div class="meta"><b>Copilot Chat</b><small>Agent mode &amp; chat</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
+            <div class="ext a" style="--d:.8s"><div class="tile" style="background:#24292e"><svg class="ico"><use href="#i-git"/></svg></div><div class="meta"><b>GitHub Pull Requests</b><small>Review &amp; collaborate</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
+            <div class="ext a" style="--d:.95s"><div class="tile" style="background:#1d63ed"><svg class="ico"><use href="#i-box"/></svg></div><div class="meta"><b>Docker</b><small>Containers &amp; deployment</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
+            <div class="ext a" style="--d:1.1s"><div class="tile" style="background:#b7791f"><svg class="ico"><use href="#i-db"/></svg></div><div class="meta"><b>Database Client</b><small>Query your data</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
+            <div class="ext a" style="--d:1.25s"><div class="tile" style="background:#0f9d8a"><svg class="ico"><use href="#i-api"/></svg></div><div class="meta"><b>API Testing</b><small>Call &amp; test endpoints</small></div><div class="btn"><span class="b1">Install</span><span class="b2">Installed</span></div></div>
+          </div>
+          <div class="editor">
+            <div class="tabs"><div class="on">App.tsx</div><div>PRD.md</div><div>Design-System.md</div></div>
+            <div class="code" id="code"></div>
+            <div class="ghost">// Copilot: build login page from Design-System.md<kbd>Tab</kbd> <span class="cur"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eq" data-step="1">
+        <div class="eyebrow a">Key message</div>
+        <div class="chip a right" style="--d:.5s"><svg class="ico"><use href="#i-code"/></svg>VS Code</div>
+        <div class="op a scale" style="--d:.7s">+</div>
+        <div class="chip a right" style="--d:.85s"><svg class="ico"><use href="#i-spark"/></svg>Extensions</div>
+        <div class="op a scale" style="--d:1.05s">+</div>
+        <div class="chip a right" style="--d:1.2s"><svg class="ico"><use href="#i-api"/></svg>Connectors</div>
+        <div class="op a scale" style="--d:1.4s">+</div>
+        <div class="chip a right" style="--d:1.55s"><svg class="ico"><use href="#i-doc"/></svg>Documentation</div>
+        <div class="op a scale" style="--d:1.8s">=</div>
+        <div class="result a scale" style="--d:2s">AI Development<br/>Environment</div>
+      </div>
     </div>
   </section>
 
@@ -1204,7 +1304,7 @@
 <script>
 (() => {
   const stage = document.getElementById("stage");
-  const slides = [...document.querySelectorAll(".slide")];
+  const slides = [...document.querySelectorAll(".slide")].sort((left, right) => Number(left.dataset.num) - Number(right.dataset.num));
   const hud = document.getElementById("hud");
   const progress = document.getElementById("progress");
   let cur = 0, step = 0;
