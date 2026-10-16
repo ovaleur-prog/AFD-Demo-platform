@@ -537,6 +537,9 @@
   .paper ul { margin: 0 0 8px; padding-left: 20px; }
   .paper .ok { list-style: none; padding-left: 0; }
   .paper .ok li::before { content: "✓ "; color: #1a9e45; font-weight: 700; }
+  .paper .palette { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin: 6px 0 10px; }
+  .paper .swatch { display: flex; align-items: center; gap: 6px; padding: 4px; border: 1px solid #ddd; border-radius: 5px; font: 10px/1.2 "JetBrains Mono", monospace; }
+  .paper .swatch i { width: 20px; height: 20px; flex: none; border: 1px solid rgba(0,0,0,.15); border-radius: 4px; background: var(--swatch); }
 
   /* ---------- Demo stack ---------- */
   .stk { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 64px; margin-top: 70px; }
@@ -947,24 +950,43 @@
       </article>
 
       <article class="doccard a" style="--d:.7s">
-        <header><svg class="ico"><use href="#i-route"/></svg>App-Flow.md<small>JOURNEYS</small></header>
+        <header><svg class="ico"><use href="#i-figma"/></svg>Design-System.md<small>DESIGN</small></header>
         <div class="paper"><div class="scroll">
-          <h1>Application Flow</h1>
-          <h2>Entry Point</h2>
-          <p>User lands on the Dashboard Homepage.</p>
-          <h3>Dashboard Overview</h3>
-          <p>User can view:</p><ul><li>Total Production</li><li>Active Sites</li><li>Availability</li><li>Alerts</li></ul>
-          <p>Available actions:</p><ul><li>Open Regional Analysis</li><li>Open Map View</li><li>Open Alert Center</li><li>Open Forecast View</li></ul>
-          <h2>Regional Analysis Flow</h2>
-          <p>Dashboard ↓ Regional Analysis</p><ul><li>Select a region</li><li>Compare regions</li><li>Analyze trends</li></ul>
-          <h2>Map View Flow</h2>
-          <p>Dashboard ↓ Interactive Map</p><ul><li>Click on a solar site</li><li>View site details</li><li>View production metrics</li><li>Access active alerts</li></ul>
-          <h2>Alert Management Flow</h2>
-          <p>Dashboard ↓ Alert Center</p><ul><li>View alert list</li><li>Filter alerts</li><li>Sort by severity</li><li>Open alert details</li></ul>
-          <h2>Forecast Flow</h2>
-          <p>Dashboard ↓ Forecasting</p><ul><li>View future production</li><li>Compare projections</li><li>Analyze expected trends</li></ul>
-          <h2>Navigation Principles</h2>
-          <ul><li>Maximum 3 clicks to reach any feature</li><li>Clear and intuitive user journey</li><li>Consistent navigation across pages</li></ul>
+          <h1>Design System</h1>
+          <h2>1. Purpose</h2>
+          <p>Defines the visual identity, UI components and interaction rules for the Solar Grid Monitoring Dashboard.</p>
+          <p>Inspired by AREAS &amp; WeWebBox; it should communicate:</p>
+          <ul><li>Solar energy</li><li>Innovation &amp; sustainability</li><li>African infrastructure</li><li>Operational excellence</li><li>Accessibility &amp; reliability</li><li>Digital industry</li></ul>
+          <p>Professional, modern and data-driven, yet simple for non-technical users.</p>
+          <h2>2. Design Principles</h2>
+          <h3>Energy at the Centre</h3>
+          <p>Prioritize production and infrastructure performance. Keep key metrics immediately visible:</p>
+          <ul><li>Current solar production</li><li>Installed capacity &amp; network availability</li><li>Active sites &amp; operational alerts</li><li>Environmental impact</li></ul>
+          <h3>Clear &amp; Accessible</h3>
+          <p>Short labels, clear spacing, simple charts, explicit status indicators, contextual explanations and progressive disclosure. Avoid technical overload.</p>
+          <h3>Impact-Oriented</h3>
+          <p>Connect operations to impact: CO₂ avoided, households connected, renewable energy produced and communities served.</p>
+          <h3>African &amp; Locally Grounded</h3>
+          <p>Keep real regions, local contexts and solar infrastructure central to the experience.</p>
+          <h3>Digital Sovereignty</h3>
+          <p>Use optimized images, lightweight components, limited animation, a restrained palette, clear data hierarchy and simple page structures.</p>
+          <h2>3. Colour System</h2>
+          <h3>Solar Yellow</h3>
+          <p>Solar energy, electricity and highlighted actions.</p>
+          <div class="palette"><div class="swatch"><i style="--swatch:#F9D648"></i>Daylight #F9D648</div><div class="swatch"><i style="--swatch:#E6B920"></i>Hover #E6B920</div><div class="swatch"><i style="--swatch:#A78512"></i>Active #A78512</div><div class="swatch"><i style="--swatch:#FFF6D1"></i>Light #FFF6D1</div></div>
+          <h3>Energy Green</h3>
+          <p>Sustainability, positive performance and environmental impact.</p>
+          <div class="palette"><div class="swatch"><i style="--swatch:#73C66E"></i>Daylight #73C66E</div><div class="swatch"><i style="--swatch:#5AAE55"></i>Hover #5AAE55</div><div class="swatch"><i style="--swatch:#2F7A3A"></i>Dark #2F7A3A</div><div class="swatch"><i style="--swatch:#E8F5E9"></i>Light #E8F5E9</div></div>
+          <h3>Deep Navy</h3>
+          <p>Technology, reliability and industrial credibility.</p>
+          <div class="palette"><div class="swatch"><i style="--swatch:#0F172A"></i>Daylight #0F172A</div><div class="swatch"><i style="--swatch:#1E293B"></i>Hover #1E293B</div><div class="swatch"><i style="--swatch:#020617"></i>Dark #020617</div><div class="swatch"><i style="--swatch:#E2E8F0"></i>Light #E2E8F0</div></div>
+          <h3>Semantic Colours</h3>
+          <div class="palette"><div class="swatch"><i style="--swatch:#3B82F6"></i>Info</div><div class="swatch"><i style="--swatch:#F59E0B"></i>Warning</div><div class="swatch"><i style="--swatch:#DC2626"></i>Critical</div><div class="swatch"><i style="--swatch:#71717A"></i>Offline</div></div>
+          <h3>Neutrals</h3>
+          <div class="palette"><div class="swatch"><i style="--swatch:#F8FAFC"></i>Page</div><div class="swatch"><i style="--swatch:#0F172A"></i>Text</div><div class="swatch"><i style="--swatch:#FFFFFF"></i>Surface</div><div class="swatch"><i style="--swatch:#E2E8F0"></i>Lines</div></div>
+          <h2>4. Typography</h2>
+          <h3>Primary Font: Inter</h3>
+          <p>Use Inter as the primary interface font; use a clean sans-serif fallback.</p>
         </div></div>
       </article>
 
