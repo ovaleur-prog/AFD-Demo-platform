@@ -611,17 +611,17 @@
   .paper .swatch i { width: 20px; height: 20px; flex: none; border: 1px solid rgba(0,0,0,.15); border-radius: 4px; background: var(--swatch); }
 
   /* ---------- Demo stack ---------- */
-  .stk { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 64px; margin-top: 70px; }
-  .stk-card { position: relative; padding: 40px 22px 34px; border-radius: 20px; text-align: center; border: 1px solid var(--line); background: linear-gradient(160deg, rgba(139,92,246,.14), rgba(19,19,22,.92)); }
-  .stk-card .lbox { width: 128px; height: 128px; margin: 0 auto 24px; display: grid; place-items: center; border-radius: 30px; border: 1px solid rgba(255,255,255,.1); background: #1a1a1f; font-size: 66px; color: var(--purple2); box-shadow: 0 0 50px rgba(139,92,246,.25); }
-  .stk-card .lbox img { width: 76px; height: 76px; object-fit: contain; }
+  .stk { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; margin-top: 70px; }
+  .stk-card { position: relative; padding: 36px 18px 30px; border-radius: 20px; text-align: center; border: 1px solid var(--line); background: linear-gradient(160deg, rgba(139,92,246,.14), rgba(19,19,22,.92)); }
+  .stk-card .lbox { width: 112px; height: 112px; margin: 0 auto 20px; display: grid; place-items: center; border-radius: 26px; border: 1px solid rgba(255,255,255,.1); background: #1a1a1f; font-size: 58px; color: var(--purple2); box-shadow: 0 0 50px rgba(139,92,246,.25); }
+  .stk-card .lbox img { width: 68px; height: 68px; object-fit: contain; }
   .stk-card .lbox.duo { display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .stk-card .lbox.duo img { width: 52px; height: 52px; border-radius: 10px; }
+  .stk-card .lbox.duo img { width: 46px; height: 46px; border-radius: 8px; }
   .stk-card .eyebrow { display: block; }
-  .stk-card h3 { margin: 12px 0 8px; font-size: 32px; }
-  .stk-card p { margin: 0; font-size: 19px; line-height: 1.4; color: var(--grey); }
-  .stk-card:not(:last-child)::after { content: ""; position: absolute; right: -50px; top: 50%; width: 36px; height: 4px; border-radius: 4px; background: var(--purple2); opacity: 0; transition: opacity .4s ease calc(var(--d) + .5s); }
-  .stk-card:not(:last-child)::before { content: ""; position: absolute; right: -62px; top: calc(50% - 7px); border-left: 12px solid var(--purple2); border-top: 9px solid transparent; border-bottom: 9px solid transparent; opacity: 0; transition: opacity .4s ease calc(var(--d) + .5s); }
+  .stk-card h3 { margin: 10px 0 6px; font-size: 27px; }
+  .stk-card p { margin: 0; font-size: 17px; line-height: 1.35; color: var(--grey); }
+  .stk-card:not(:last-child)::after { content: ""; position: absolute; right: -32px; top: 50%; width: 22px; height: 4px; border-radius: 4px; background: var(--purple2); opacity: 0; transition: opacity .4s ease calc(var(--d) + .5s); }
+  .stk-card:not(:last-child)::before { content: ""; position: absolute; right: -42px; top: calc(50% - 7px); border-left: 11px solid var(--purple2); border-top: 8px solid transparent; border-bottom: 8px solid transparent; opacity: 0; transition: opacity .4s ease calc(var(--d) + .5s); }
   [data-step].in .stk-card::after, [data-step].in .stk-card::before { opacity: 1; }
   .stk-opt { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 60px; font-size: 21px; color: var(--grey); }
   .stk-opt span { display: flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; border: 1px dashed rgba(77,208,225,.55); background: rgba(77,208,225,.07); color: #fff; }
@@ -679,11 +679,12 @@
 
   /* ---------- Demo roadmap ---------- */
   .sflow { display: flex; flex-direction: column; align-items: center; }
-  .sflow .pipeline { margin-top: 110px; width: 1640px; }
-  .sflow .pipeline .track, .sflow .pipeline .fill { left: 125px; right: 125px; }
-  .sflow .stepn { width: 250px; }
-  .sflow .stepn span { font-size: 23px; }
-  .flow-note { margin-top: 90px; font-size: 26px; color: var(--grey); }
+  .sflow .pipeline { margin-top: 100px; width: 1680px; }
+  .sflow .pipeline .track, .sflow .pipeline .fill { left: 90px; right: 90px; }
+  .sflow .stepn { width: 200px; gap: 14px; }
+  .sflow .stepn .dot { width: 90px; height: 90px; font-size: 38px; }
+  .sflow .stepn span { font-size: 20px; }
+  .flow-note { margin-top: 80px; font-size: 26px; color: var(--grey); }
   .flow-note b { color: #fff; }
 
   /* ---------- Prerequisites ---------- */
@@ -909,19 +910,20 @@
   <section class="slide" data-num="11">
     <div data-step="0">
       <h2 class="title a blur">Our Demo <span class="hl">Stack</span></h2>
-      <p class="sub a" style="--d:.25s">Four tools to go from an idea to a deployed application.</p>
+      <p class="sub a" style="--d:.25s">Five tools to go from an idea to a deployed application.</p>
     </div>
     <div class="stk" data-step="0">
       <div class="stk-card a scale" style="--d:.4s"><div class="lbox"><img src="assets/logo-vscode.png" alt="" /></div><span class="eyebrow">IDE</span><h3>VS Code</h3><p>Where we write, run and edit the app</p></div>
       <div class="stk-card a scale" style="--d:.6s"><div class="lbox"><svg class="ico"><use href="#i-spark"/></svg></div><span class="eyebrow">AI assistant · License</span><h3>GitHub Copilot</h3><p>The agent that generates and edits code</p></div>
       <div class="stk-card a scale" style="--d:.8s"><div class="lbox duo"><img src="assets/github.png" alt="" /><img src="assets/gitlab.png" alt="" /></div><span class="eyebrow">Versioning</span><h3>GitHub / GitLab</h3><p>History, collaboration and backups</p></div>
-      <div class="stk-card a scale" style="--d:1s"><div class="lbox"><svg viewBox="0 0 24 24" width="64" height="64"><path d="M12 3l10 18H2z" fill="#fff"/></svg></div><span class="eyebrow">Deployment</span><h3>Vercel</h3><p>Publishes the app online in one click</p></div>
+      <div class="stk-card a scale" style="--d:1s"><div class="lbox"><img src="assets/supabase.png" alt="Supabase" /></div><span class="eyebrow">Database</span><h3>Supabase</h3><p>Store your data in one place</p></div>
+      <div class="stk-card a scale" style="--d:1.2s"><div class="lbox"><svg viewBox="0 0 24 24" width="64" height="64"><path d="M12 3l10 18H2z" fill="#fff"/></svg></div><span class="eyebrow">Deployment</span><h3>Vercel</h3><p>Publishes the app online in one click</p></div>
     </div>
     <div class="stk-opt" data-step="1">
       <b class="a">+ Optional connectors</b>
       <span class="a" style="--d:.1s"><svg class="ico"><use href="#i-figma"/></svg>Figma</span>
       <span class="a" style="--d:.2s"><svg class="ico"><use href="#i-cloud"/></svg>Azure</span>
-      <span class="a" style="--d:.3s"><svg class="ico"><use href="#i-db"/></svg>Database</span>
+      <span class="a" style="--d:.3s"><svg class="ico"><use href="#i-api"/></svg>APIs</span>
     </div>
   </section>
 
@@ -1005,7 +1007,7 @@
     <div data-step="0">
       <div class="num a scale">02.</div>
       <h2 class="a blur" style="--d:.2s">Live demo: <span class="hl">Solar Grid Monitoring Dashboard</span></h2>
-      <p class="sub a" style="--d:.25s">Six steps from a blank folder to a deployed Solar Grid Monitoring Dashboard.</p>
+      <p class="sub a" style="--d:.25s">Seven steps from a blank folder to a deployed Solar Grid Monitoring Dashboard.</p>
     </div>
     <div class="pipeline" data-step="0">
       <div class="track"></div><div class="fill"></div>
@@ -1015,8 +1017,9 @@
       <div class="stepn a scale" style="--d:1.45s"><div class="dot" style="--d:1.55s"><svg class="ico"><use href="#i-code"/></svg></div><small>STEP 4</small><span>Generate the<br/>application</span></div>
       <div class="stepn a scale" style="--d:1.8s"><div class="dot" style="--d:1.90s"><svg class="ico"><use href="#i-chat"/></svg></div><small>STEP 5</small><span>Iterate<br/>with the AI</span></div>
       <div class="stepn a scale" style="--d:2.15s"><div class="dot" style="--d:2.25s"><svg class="ico"><use href="#i-rocket"/></svg></div><small>STEP 6</small><span>Deploy<br/>(Vercel)</span></div>
+      <div class="stepn a scale" style="--d:2.5s"><div class="dot" style="--d:2.60s"><svg class="ico"><use href="#i-db"/></svg></div><small>STEP 7</small><span>Connect<br/>database</span></div>
     </div>
-    <p class="flow-note a" data-step="0" style="--d:2.7s">The AI does the heavy lifting — <b>you steer, review and validate</b>.</p>
+    <p class="flow-note a" data-step="0" style="--d:3.0s">The AI does the heavy lifting — <b>you steer, review and validate</b>.</p>
   </section>
 
   <!-- ================= SLIDE 12 ================= -->
