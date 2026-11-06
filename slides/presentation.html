@@ -347,8 +347,34 @@
   .s5 .nowrap { white-space: nowrap; }
   .s5 .vc-sub { max-width: 1400px; margin: 60px 0 0; font-size: 26px; font-weight: 300; line-height: 1.6; color: var(--grey); text-wrap: balance; }
   .s5 .vc-sub b { color: #fff; font-weight: 600; }
-  .stweet { display: flex; align-items: center; justify-content: center; }
-  .stweet .tweet { width: 900px; border-radius: 22px; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 30px 120px rgba(91,43,214,.35); }
+  .stweet { display: flex; align-items: center; justify-content: center; padding: 60px 100px; }
+  .tweet-hero { display: grid; grid-template-columns: 860px 1fr; gap: 64px; align-items: center; width: 100%; max-width: 1720px; }
+  .tweet-frame-wrap { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .tweet-badge-bar { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 999px; background: rgba(139,92,246,.15); border: 1px solid rgba(167,139,250,.35); color: var(--purple2); font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 22px; box-shadow: 0 0 25px rgba(139,92,246,.25); }
+  .tweet-glow { position: absolute; width: 620px; height: 420px; background: radial-gradient(circle, rgba(139,92,246,.45) 0%, rgba(77,208,225,.2) 45%, transparent 70%); filter: blur(60px); pointer-events: none; z-index: 0; animation: tweetPulse 5s ease-in-out infinite alternate; }
+  @keyframes tweetPulse { 0% { transform: scale(0.92) translate(-20px, 10px); opacity: 0.7; } 100% { transform: scale(1.08) translate(20px, -10px); opacity: 1; } }
+  .tweet-card { position: relative; z-index: 1; padding: 10px; border-radius: 26px; background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.03)); border: 1px solid rgba(255,255,255,.18); box-shadow: 0 20px 60px rgba(0,0,0,.8), 0 0 40px rgba(139,92,246,.25); transition: transform .5s var(--ease), box-shadow .5s var(--ease); animation: floatTweet 6s ease-in-out infinite alternate; }
+  @keyframes floatTweet { 0% { transform: translateY(0px) rotate(-0.5deg); } 100% { transform: translateY(-12px) rotate(0.8deg); } }
+  .tweet-card:hover { transform: translateY(-16px) scale(1.02); box-shadow: 0 30px 80px rgba(139,92,246,.4); }
+  .tweet-card img { display: block; width: 100%; border-radius: 18px; box-shadow: 0 8px 30px rgba(0,0,0,.6); }
+  
+  .tweet-author-tag { position: relative; z-index: 1; margin-top: 18px; display: flex; align-items: center; gap: 12px; color: #a9a9b4; font-size: 17px; }
+  .tweet-author-tag b { color: #fff; font-weight: 600; }
+  .tweet-author-tag span { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--purple2); }
+
+  .tweet-story { display: flex; flex-direction: column; gap: 24px; }
+  .tweet-story .eyebrow { font-size: 16px; letter-spacing: 2.5px; color: var(--cyan); }
+  .tweet-story h2.headline { font-size: 44px; font-weight: 800; line-height: 1.22; margin: 0; color: #fff; text-wrap: balance; }
+  .tweet-story h2.headline span { color: var(--purple2); text-shadow: 0 0 30px rgba(167,139,250,.4); }
+  .tweet-points { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+  .tp-card { position: relative; overflow: hidden; padding: 20px 24px; border-radius: 16px; background: rgba(19,19,22,.85); border: 1px solid rgba(255,255,255,.09); border-left: 4px solid var(--purple2); display: flex; gap: 18px; align-items: flex-start; transition: transform .3s var(--ease), border-color .3s; }
+  .tp-card:nth-child(2) { border-left-color: var(--cyan); }
+  .tp-card:nth-child(3) { border-left-color: var(--yellow); }
+  .tp-card:hover { transform: translateX(8px); border-color: rgba(255,255,255,.2); }
+  .tp-ico { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; flex: none; font-size: 20px; background: rgba(255,255,255,.06); color: #fff; }
+  .tp-content h4 { margin: 0 0 4px; font-size: 21px; font-weight: 700; color: #fff; }
+  .tp-content p { margin: 0; font-size: 16px; line-height: 1.5; color: #b4b4be; }
+  .tp-content p b { color: #fff; }
 
   /* ---------- VIBE TOOLS ---------- */
   .vt-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 70px; }
@@ -806,7 +832,53 @@
 
   <!-- ================= TWEET (Karpathy) ================= -->
   <section class="slide stweet" data-num="5">
-    <img class="tweet a scale" data-step="0" style="--d:.3s" src="assets/tweet-karpathy.png" alt="Tweet d'Andrej Karpathy du 2 février 2025 introduisant le terme « vibe coding »" />
+    <div class="tweet-hero">
+      <div class="tweet-frame-wrap" data-step="0">
+        <div class="tweet-badge-bar a scale" style="--d:.2s">
+          <svg class="ico" style="color:var(--cyan)"><use href="#i-bolt"/></svg>
+          2 Février 2025 · Le tweet fondateur
+        </div>
+        <div class="tweet-glow"></div>
+        <div class="tweet-card a scale" style="--d:.35s">
+          <img src="assets/tweet-karpathy.png" alt="Tweet d'Andrej Karpathy du 2 février 2025 introduisant le terme « vibe coding »" />
+        </div>
+        <div class="tweet-author-tag a" style="--d:.6s">
+          <b>Andrej Karpathy</b>
+          <span></span>
+          Ex-Directeur IA Tesla · Cofondateur OpenAI
+        </div>
+      </div>
+
+      <div class="tweet-story" data-step="0">
+        <div class="eyebrow a left" style="--d:.4s">L'étincelle qui a lancé le mouvement</div>
+        <h2 class="headline a blur" style="--d:.55s">
+          « I forget that the code <span>even exists</span>. »
+        </h2>
+        <div class="tweet-points">
+          <div class="tp-card a right" style="--d:.75s">
+            <div class="tp-ico" style="color:var(--purple2)"><svg class="ico"><use href="#i-spark"/></svg></div>
+            <div class="tp-content">
+              <h4>De la syntaxe à l'intention</h4>
+              <p>On ne tape plus chaque ligne de code : on exprime une vision et on <b>laisse l'IA orchestrer</b> l'exécution technique.</p>
+            </div>
+          </div>
+          <div class="tp-card a right" style="--d:.95s">
+            <div class="tp-ico" style="color:var(--cyan)"><svg class="ico"><use href="#i-target"/></svg></div>
+            <div class="tp-content">
+              <h4>La fin de la friction technique</h4>
+              <p>Passer d'une idée à un logiciel fonctionnel devient une boucle rapide : <b>exprimer, tester, itérer</b>.</p>
+            </div>
+          </div>
+          <div class="tp-card a right" style="--d:1.15s">
+            <div class="tp-ico" style="color:var(--yellow)"><svg class="ico"><use href="#i-user"/></svg></div>
+            <div class="tp-content">
+              <h4>Une opportunité pour tous</h4>
+              <p>Le pouvoir de bâtir des solutions digitales s'étend désormais aux <b>experts métiers, chefs de produit et créateurs</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ================= SLIDE 5 ================= -->
